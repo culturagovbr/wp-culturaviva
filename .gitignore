@@ -1,0 +1,25 @@
+wp-config.php
+.htaccess
+*~
+*swp
+.DS*Store
+Thumbs.db
+.project
+wp-content/blogs.dir
+wp-content/uploads
+wp-content/plugins/si-captcha-for-wordpress/captcha/temp
+wp-content/plugins/si-captcha-for-wordpress/captcha/cache
+/nbproject/private/
+nbproject/
+.buildpath
+.settings
+wp-content/blogs.dir
+
+# WordPress dev plugins
+wp-content/plugins/regenerate-thumbnails
+wp-content/plugins/monster-widget
+wp-content/plugins/bulk-delete
+
+# Sublime Text project files
+*.sublime-project
+*.sublime-workspace
