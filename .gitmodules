@@ -1,0 +1,3 @@
+[submodule "wp-content/plugins/wp-opauth"]
+	path = wp-content/plugins/wp-opauth
+	url = git@github.com:redelivre/wp-opauth.git
