@@ -16,6 +16,9 @@ class RedeCulturaViva
 		add_action( 'after_setup_theme', array($this, 'content_width'), 0 );
 		add_action( 'widgets_init', array($this, 'widgets_init' ));
 		add_action( 'wp_enqueue_scripts', array($this, 'scripts' ));
+		add_action( 'pre_get_posts', array($this, 'pre_get_posts' ));
+		add_action( 'excerpt_length', array($this, 'excerpt_length' ));
+		
 	}
 	
 	/**
@@ -111,9 +114,9 @@ class RedeCulturaViva
 	 */
 	function widgets_init() {
 		register_sidebar( array(
-			'name'          => esc_html__( 'Sidebar', 'rede-cultura-viva' ),
-			'id'            => 'sidebar-1',
-			'description'   => '',
+			'name'          => esc_html__( 'Home Sidebar', 'rede-cultura-viva' ),
+			'id'            => 'sidebar-home',
+			'description'   => 'Sidebar after highlights',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -128,6 +131,8 @@ class RedeCulturaViva
 		wp_enqueue_style( 'rede-cultura-viva-style', get_stylesheet_uri() );
 		
 		wp_enqueue_style( 'rede-cultura-viva-icons', get_stylesheet_directory_uri()."/css/icons.css" );
+		
+		wp_enqueue_style( 'rede-cultura-viva-slideshow', get_stylesheet_directory_uri()."/css/slideshow.css" );
 	
 		wp_enqueue_script( 'rede-cultura-viva-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	
@@ -144,6 +149,31 @@ class RedeCulturaViva
 		wp_enqueue_script('jquery-slider-scroller', get_template_directory_uri() . '/js/jquery.slider.scroller.js', array('jquery-cycle2'));
 		
 	}
+	
+	function pre_get_posts( $query ) {
+		if ( $query->is_home() && $query->is_main_query() )
+		{
+			$query->set( 'posts_per_page', 5 );
+			//'ignore_sticky_posts' => 1, 'meta_key' => '_home', 'meta_value' => 1
+			
+			$meta_query = $query->get('meta_query');
+			
+			$meta_query[] = array(
+				'key'=>'_home',
+				'compare'=>'NOT EXISTS',
+			);
+			$query->set('meta_query',$meta_query);
+		}
+	}
+	
+	function excerpt_length($len)
+	{
+		if ( is_home() && is_main_query() )
+		{
+			return 10;
+		}
+		return $len;
+	} 
 
 }
 
@@ -174,3 +204,8 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Load Widgets file.
+ */
+require get_template_directory() . '/inc/widgets.php';

@@ -48,7 +48,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 html {
-	font-family: sans-serif;
+	font-family: DroidSans;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust:     100%;
 }
@@ -266,13 +266,23 @@ th {
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
+@font-face {
+    font-family: DroidSans;
+    src: url(fonts/droid-sans/DroidSans.ttf);
+}
+
+@font-face {
+    font-family: DroidSans-Bold;
+    src: url(fonts/droid-sans/DroidSans-Bold.ttf);
+}
+
 body,
 button,
 input,
 select,
 textarea {
 	color: #404040;
-	font-family: sans-serif;
+	font-family: DroidSans;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -523,7 +533,7 @@ a:active {
 --------------------------------------------------------------*/
 .entry-navigation {
 	margin-top: 1em;
-	background-color: #f1f1f1; 
+	background-color: #ffffff; 
 }
 
 .main-navigation {
@@ -736,6 +746,92 @@ a:active {
 	display: none;
 }
 
+#home-sidebar {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+
+#home-sidebar .widget {
+    float: left;
+    height: 200px;
+    text-align: center;
+    width: 49%;
+    margin-top: 2em;
+}
+
+#home-sidebar aside:nth-child(n+3) {
+    width: 32%;
+}
+
+#home-sidebar aside:nth-child(2), #home-sidebar aside:nth-child(3), #home-sidebar aside:nth-child(4) {
+	margin-right: 1em;
+}
+
+.widget_mapas_culturais_events_widget .widget-title {
+    background-color: #d92d5f;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0.25em;
+}
+
+.widget_mapas_culturais_events_widget {
+	position: relative;
+}
+
+.widget_mapas_culturais_events_widget [class^="icon-"]:before,
+.widget_mapas_culturais_events_widget [class*=" icon-"]:before {
+	position: absolute;
+	left: 0.5em;
+}
+
+.widget_mapas_culturais_events_widget .col1, .widget_mapas_culturais_events_widget .col2 {
+	display: block;
+	float: left;
+	
+}
+.widget_mapas_culturais_events_widget .col1 {
+	width: 20%;
+	font-weight: bolder;
+}
+
+.widget_mapas_culturais_events_widget .col2 {
+	width: 80%;
+	text-align: left;
+	padding-left: 1em;
+}
+
+.widget_mapas_culturais_events_widget ul {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.widget_mapas_culturais_events_widget li {
+    background-color: #e1b70e;
+    color: #a02238;
+    display: block;
+    float: left;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+	padding: 1em 1em 1em 0;
+}
+
+.widget_mapas_culturais_events_widget li a {
+	color: #d92d5f;
+}
+
+.widget_mapas_culturais_events_widget li:nth-child(even) {
+	background-color: #dcd123;
+}
+
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -754,7 +850,7 @@ a:active {
 --------------------------------------------------------------*/
 
 .site-header {
-	background-color: #f1f1f1;
+	background-color: #ffffff;
 }
 
 .site-logo {
@@ -765,6 +861,23 @@ a:active {
 .site-logo, .site-navigation {
 	display: block;
 	float: left;
+}
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+
+.site-info {
+	min-height: 50px;
+    padding: 20px 0;
+    width: 100%;
+    background: #034811 none repeat scroll 0 0;
+    color: #fff;
+}
+
+.footer-proudly, .footer-proudly a {
+	text-align: center;
+	color: #ffffff;
 }
 
 /*--------------------------------------------------------------
@@ -797,6 +910,80 @@ a:active {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.home-posts-list {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.home-post {
+    background-size: 100% 100%;
+    float: left;
+    position: relative;
+    width: 32%;
+    height: 200px;
+    margin-right: 1em;
+}
+
+.home-posts-list article:nth-child(3), .home-posts-list article:nth-child(5) {
+	margin-right: 0;
+}
+
+.home-posts-list article:nth-child(n+4)
+{
+	width: 49%;
+}
+
+.home-posts-list article .entry-header {
+	display: none;
+}
+
+.home-posts-list article:nth-child(n+4) .entry-header {
+	display: block;
+}
+
+.home-posts-list .entry-content {
+	background-color:rgba(0,0,0,.5);
+    display: block;
+    height: 200px;
+    line-height: 155px;
+    margin: 0;
+    padding: 1em 2em;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    color: #fff;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+
+.home-posts-list .entry-content:hover {
+	opacity: 1;
+}
+
+.home-posts-list .entry-content span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;      
+}
+
+.home-posts-list .entry-header {
+    background-color: rgba(255, 255, 255, 0.5);
+    bottom: 0;
+    color: #000;
+    font-size: 1.2em;
+    height: 44px;
+    margin: 1em 2em;
+    overflow: hidden;
+    padding: 0.5em;
+    position: absolute;
+    width: 85%;
 }
 
 /*--------------------------------------------------------------

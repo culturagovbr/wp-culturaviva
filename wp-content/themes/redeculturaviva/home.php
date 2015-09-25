@@ -24,33 +24,26 @@ get_header(); ?>
 					<div class="cycle-slideshow highlights" >
 						<ul class="slides">
 				        	<div class="cycle-pager"></div>
-				        	<div class="cycle-prev"></div>
-	   					 	<div class="cycle-next"></div>
+				        	<div class="cycle-prev"><div class="icon-key"></div></div>
+	   					 	<div class="cycle-next"><div class="icon-check"></div></div>
 					        <?php while ( $feature->have_posts() ) : $feature->the_post(); ?>
-						        <li class="cycles-slide">
-							        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					        	<?php if ( has_post_thumbnail() )
+					        	{
+			    					$post_thumbnail_id = get_post_thumbnail_id( get_the_ID() );
+			    					$thumb = wp_get_attachment_image_src($post_thumbnail_id, 'slider',false);
+			    					$url = ''; //TODO default image if apply 
+			    					if(is_array($thumb))
+			    					{
+			    						$url = $thumb[0];
+					    			}
+					        	}
+					        	$title = the_title($before = '', $after = '', false);
+					        	?>
+						        <li class="cycles-slide" >
+							        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> style="background-image: url(<?php echo $url; ?>)" >
 							        	<div class="media slide cf">
-							    			<?php if ( has_post_thumbnail() ) : ?>
-								    			<div class="entry-image">
-								    				<?php
-								    					$post_thumbnail_id = get_post_thumbnail_id( get_the_ID() );
-								    					$thumb = wp_get_attachment_image_src($post_thumbnail_id, 'slider',false);
-								    					if(is_array($thumb))
-								    					{
-										    				?>
-										    				<div class="highlights-image" style="background-image: url(<?php echo $thumb[0]; ?>)" ></div><?php
-										    			}?>
-								    			</div>
-							    			<?php endif; ?>
 							        		<div class="bd">
-							        			<div class="entry-meta">
-								        			<?php $category = get_the_category(); ?>
-													<a href="<?php echo get_category_link( $category[0]->term_id ); ?>"><?php echo $category[0]->cat_name; ?></a>
-												</div>
-							        			<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php echo substr(the_title($before = '', $after = '', FALSE), 0, 60).'...'; ?></a></h2>
-							        			<div class="entry-summary">
-								        			<?php the_excerpt(); ?>
-							        			</div>
+							        			<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php echo strlen($title) > 80 ? (substr($title, 0, 80).'...') : $title ; ?></a></h2>
 							        		</div>
 							        	</div><!-- /slide -->
 							        </article><!-- /article -->
@@ -73,11 +66,21 @@ get_header(); ?>
 			?>
 			<div class="clearfix"> </div>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<div id="home-sidebar" class="widget-area" role="complementary">
+				<?php dynamic_sidebar( 'sidebar-home' ); ?>
+			</div><!-- #home-sidebar -->
 
-				<?php get_template_part( 'template-parts/content', 'page' ); ?>
-
-			<?php endwhile; // End of the loop. ?>
+			<?php
+			if(have_posts())
+			{?>
+				<div class="home-posts-list"><?php
+				while ( have_posts() )
+				{
+					the_post();
+					get_template_part( 'template-parts/content', 'home' );
+				}?>
+				</div><?php
+			}?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
