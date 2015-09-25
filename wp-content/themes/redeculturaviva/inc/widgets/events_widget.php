@@ -68,7 +68,7 @@ class Mapas_Culturais_Events_Widget extends WP_Widget
 						<span class="post-date"><?php echo (date('d') + $i)."/".date('m'); ?></span>
 					</div>
 					<div class="col2">
-						<a href="#"><?php echo "Evento ".$i; ?></a>
+						<a href="#"><?php echo "Evento Bem comprido o nome, não é mesmo? ".$i; ?></a>
 					</div>
 				</li>
 				<?php endfor; ?>

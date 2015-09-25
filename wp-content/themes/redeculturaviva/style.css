@@ -532,7 +532,6 @@ a:active {
 ## Menus
 --------------------------------------------------------------*/
 .entry-navigation {
-	margin-top: 1em;
 	background-color: #ffffff; 
 }
 
@@ -540,6 +539,14 @@ a:active {
 	display: block;
 	float: right;
 	max-width: 850px
+}
+
+header .main-navigation a {
+    color: #000;
+}
+
+header .main-navigation a:hover {
+    color: #c0c0c0;
 }
 
 .main-navigation ul {
@@ -554,6 +561,8 @@ a:active {
     padding: 0.75em 1em;
     position: relative;
     text-align: center;
+    border-left: 1px solid #dfdfdf;
+    border-right: 1px solid #dfdfdf;
 }
 
 .main-navigation a {
@@ -756,10 +765,25 @@ a:active {
 
 #home-sidebar .widget {
     float: left;
-    height: 200px;
+    height: 240px;
     text-align: center;
     width: 49%;
     margin-top: 2em;
+    overflow: hidden;
+    position: relative;
+}
+
+#home-sidebar .mejs-container {
+	
+}
+
+#home-sidebar img {
+	position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 #home-sidebar aside:nth-child(n+3) {
@@ -848,6 +872,7 @@ a:active {
 .widget_mapas_culturais_events_widget .col1 {
 	width: 20%;
 	font-weight: bolder;
+	margin-top: 0.5em;
 }
 
 .widget_mapas_culturais_events_widget .col2 {
@@ -873,6 +898,7 @@ a:active {
     width: 100%;
     list-style: none;
 	padding: 1em 1em 1em 0;
+	line-height: 1em;
 }
 
 .widget_mapas_culturais_events_widget li a {
@@ -923,13 +949,14 @@ a:active {
 	min-height: 50px;
     padding: 20px 0;
     width: 100%;
-    background: #034811 none repeat scroll 0 0;
+    background: #f7931e none repeat scroll 0 0;
     color: #fff;
 }
 
 .footer-proudly, .footer-proudly a {
 	text-align: center;
 	color: #ffffff;
+	display: none;
 }
 
 /*--------------------------------------------------------------
@@ -988,6 +1015,12 @@ a:active {
 .home-posts-list article:nth-child(n+4)
 {
 	width: 49%;
+	height: 300px;
+}
+
+.home-posts-list article:nth-child(n+4) .entry-content {
+	line-height: 270px;
+	height: 300px;
 }
 
 .home-posts-list article .entry-header {
@@ -1002,7 +1035,7 @@ a:active {
 	background-color:rgba(0,0,0,.5);
     display: block;
     height: 200px;
-    line-height: 155px;
+    line-height: 160px;
     margin: 0;
     padding: 1em 2em;
     position: absolute;

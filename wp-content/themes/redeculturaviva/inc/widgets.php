@@ -6,6 +6,7 @@ class RedeCulturaVivaWidgets
 	{
 		add_filter( 'widget_text', 'shortcode_unautop');
 		add_filter( 'widget_text', 'do_shortcode', 11);
+		add_filter( 'widget_text', array( $this, 'autoembed'), 12 );
 		add_action( 'widgets_init', array($this, 'widgets_init' ));
 	}
 	
@@ -13,6 +14,13 @@ class RedeCulturaVivaWidgets
 	{
 		register_widget( 'Mapas_Culturais_Events_Widget' );
 	}
+	
+	function autoembed($content)
+	{
+		global $wp_embed;
+		return $wp_embed->autoembed($content);
+	}
+	
 }
 
 $RedeCulturaVivaWidgets = new RedeCulturaVivaWidgets();
