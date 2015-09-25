@@ -770,8 +770,60 @@ a:active {
 	margin-right: 1em;
 }
 
+#footer-sidebar {
+	display: block;
+	float: left;
+	background-color: #078979;
+	position: relative;
+	overflow: hidden;
+	color: #fff;	
+	padding: 1em;
+}
+
+#footer-sidebar .widget {
+    float: left;
+    height: 260px;
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: 1em;
+}
+
+#footer-sidebar aside:nth-child(1) {
+	width: 46%;
+}
+
+#footer-sidebar aside:nth-child(2),
+#footer-sidebar aside:nth-child(3) {
+	width: 13%;
+}
+#footer-sidebar aside:nth-child(4) {
+	width: 28%;
+}
+
+#footer-sidebar .widget-title {
+	color: #fbed1d;
+	font-size: 1.5em;
+	text-align: left;
+	margin-top: 0;
+}
+
+#footer-sidebar ul {
+	padding: 0;
+	margin: 0;
+}
+
+#footer-sidebar li {
+	list-style: none;
+	text-align: left;
+}
+
+#footer-sidebar a {
+	text-decoration: none;
+	color: #fff;
+}
+
 .widget_mapas_culturais_events_widget .widget-title {
-    background-color: #d92d5f;
+    background-color: #d82e5f;
     color: #ffffff;
     margin-top: 0;
     margin-bottom: 0;
@@ -813,7 +865,7 @@ a:active {
 }
 
 .widget_mapas_culturais_events_widget li {
-    background-color: #e1b70e;
+    background-color: #f7c908;
     color: #a02238;
     display: block;
     float: left;
@@ -824,11 +876,11 @@ a:active {
 }
 
 .widget_mapas_culturais_events_widget li a {
-	color: #d92d5f;
+	color: #d82e5f;
 }
 
 .widget_mapas_culturais_events_widget li:nth-child(even) {
-	background-color: #dcd123;
+	background-color: #fbed1d;
 }
 
 

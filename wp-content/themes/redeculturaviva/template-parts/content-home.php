@@ -22,13 +22,9 @@ if ( has_post_thumbnail() )
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( array('home-post') ); echo empty($url) ? '' : 'style="background-image: url('.$url.')"' ; ?> >
-	<div class="entry-header">
-		<?php the_title( '<span class="entry-title">', '</span>' ); ?>
-	</div><!-- .entry-header -->
-
 	<div class="entry-content">
 		<span class="home-post-middle">
-			<?php the_excerpt(); ?>
+			<?php the_title(); ?>
 		</span>
 	</div><!-- .entry-content -->
 

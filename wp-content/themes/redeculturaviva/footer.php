@@ -14,6 +14,11 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="entry-footer site-padding">
+			<div id="footer-sidebar" class="widget-area" role="complementary">
+				<?php dynamic_sidebar( 'sidebar-footer' ); ?>
+			</div><!-- #footer-sidebar -->
+		</div>
 		<div class="site-info">
 			<div class="footer-logos" id="footer-brasil"><div id="wrapper-footer-brasil"><a href="http://www.acessoainformacao.gov.br/"><span class="logo-acesso-footer"></span></a><a href="http://www.brasil.gov.br/"><span class="logo-brasil-footer"></span></a></div></div>
 		</div><!-- .site-info -->
