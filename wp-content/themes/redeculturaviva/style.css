@@ -1015,6 +1015,26 @@ a:active {
     -webkit-transition: opacity .25s ease-in-out;
 }
 
+.home-posts-list article:nth-child(1) .entry-content {
+	background-color:rgba(231,180,8,0.8);
+}
+
+.home-posts-list article:nth-child(2) .entry-content {
+	background-color:rgba(204,58,85,0.8);
+}
+
+.home-posts-list article:nth-child(3) .entry-content {
+	background-color:rgba(7,85,121,0.8);
+}
+
+.home-posts-list article:nth-child(4) .entry-content {
+	background-color:rgba(129,85,164,0.8);
+}
+
+.home-posts-list article:nth-child(5) .entry-content {
+	background-color:rgba(57,94,46,0.8);
+}
+
 .home-posts-list .entry-content:hover {
 	opacity: 1;
 }
