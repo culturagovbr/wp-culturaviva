@@ -1046,6 +1046,7 @@ header .main-navigation a:hover {
     transition: opacity .25s ease-in-out;
     -moz-transition: opacity .25s ease-in-out;
     -webkit-transition: opacity .25s ease-in-out;
+    cursor: pointer;
 }
 
 .home-posts-list article:nth-child(1) .entry-content {
