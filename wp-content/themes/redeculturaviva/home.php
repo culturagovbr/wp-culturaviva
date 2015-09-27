@@ -24,8 +24,8 @@ get_header(); ?>
 					<div class="cycle-slideshow highlights" >
 						<ul class="slides">
 				        	<div class="cycle-pager"></div>
-				        	<div class="cycle-prev"><div class="icon-key"></div></div>
-	   					 	<div class="cycle-next"><div class="icon-check"></div></div>
+				        	<div class="cycle-prev"><div class="icon2-left-open"></div></div>
+	   					 	<div class="cycle-next"><div class="icon2-right-open"></div></div>
 					        <?php while ( $feature->have_posts() ) : $feature->the_post(); ?>
 					        	<?php if ( has_post_thumbnail() )
 					        	{

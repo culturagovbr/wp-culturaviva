@@ -151,6 +151,7 @@ class RedeCulturaViva
 		wp_enqueue_style( 'rede-cultura-viva-style', get_stylesheet_uri() );
 		
 		wp_enqueue_style( 'rede-cultura-viva-icons', get_stylesheet_directory_uri()."/css/icons.css" );
+		wp_enqueue_style( 'rede-cultura-viva-icons2', get_stylesheet_directory_uri()."/fonts/redeculturaviva2/css/redeculturaviva2.css" );
 		
 		wp_enqueue_style( 'rede-cultura-viva-slideshow', get_stylesheet_directory_uri()."/css/slideshow.css" );
 	
