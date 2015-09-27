@@ -1092,6 +1092,41 @@ header .main-navigation a:hover {
     width: 85%;
 }
 
+.page .site-content {
+    background-color: #fff;
+    border-top: 1px solid #000;
+    padding: 2em;
+}
+
+.page h1 {
+    color: #d82e5f;
+}
+
+.page .post-thumbnail-box {
+    height: 290px;
+    width: 100%;
+}
+
+.page .post-thumbnail {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.center-embed {
+    text-align: center;
+}
+
+.page .wp-caption .wp-caption-text {
+    background-color: #f1f1f1;
+    font-size: 0.75em;
+    margin-top: 0;
+    padding: 0.5em;
+    text-align: left;
+}
+
 /*--------------------------------------------------------------
 ## Asides
 --------------------------------------------------------------*/

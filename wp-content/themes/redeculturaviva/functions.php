@@ -19,6 +19,8 @@ class RedeCulturaViva
 		add_action( 'pre_get_posts', array($this, 'pre_get_posts' ));
 		add_action( 'excerpt_length', array($this, 'excerpt_length' ));
 		
+		add_filter('embed_oembed_html', array($this, 'add_video_embed_div'), 10, 3);
+		
 	}
 	
 	/**
@@ -182,7 +184,16 @@ class RedeCulturaViva
 			return 10;
 		}
 		return $len;
-	} 
+	}
+
+	function add_video_embed_div($html, $url, $attr)
+	{
+		if (strpos($html, "src=" ) !== false) {
+			return '<div class="center-embed">'.$html.'</div>';
+		} else {
+			return $html;
+		}
+	}
 
 }
 
