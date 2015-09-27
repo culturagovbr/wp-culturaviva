@@ -31,7 +31,7 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'rede-cultura-viva' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form(array('title_reply' => __('Leave a comment.', 'rede-cultura-viva') )); ?>
+	<?php comment_form(array('title_reply' => __('Leave a comment.', 'rede-cultura-viva'), 'label_submit' => __('Send', 'rede-cultura-viva') )); ?>
 	
 	<?php if ( have_comments() ) : ?>
 		
@@ -53,6 +53,7 @@ if ( post_password_required() ) {
 				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
+					'walker'	 => new RedeCulturaVivaWalker_Comment
 				) );
 			?>
 		</ol><!-- .comment-list -->

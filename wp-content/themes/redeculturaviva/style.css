@@ -1148,6 +1148,15 @@ header .main-navigation a:hover {
 	margin-left: 2em
 }
 
+#secondary [class^="icon-"],
+#secondary [class*=" icon-"] {
+    margin-left: 2.6em;
+}
+
+.widget_mapas_culturais_events_widget .post-date {
+    padding-left: 0.5em;
+}
+
 .single .entry-content {
     margin-top: 340px;
     padding-right: 2em;
@@ -1255,7 +1264,7 @@ header .main-navigation a:hover {
 }
 
 .comments-area {
-    color: #075579;
+    color: #078979;
     display: block;
     float: left;
     position: relative;
@@ -1297,6 +1306,9 @@ textarea {
     border: medium none;
     border-radius: 10px;
     color: green;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
     width: 35%;
 }
 
@@ -1309,6 +1321,72 @@ label#captcha_code_label {
 input#captcha_code {
     float: left;
     width: 100% !important;
+}
+
+.comment-col2 {
+    display: block;
+    float: left;
+    position: relative;
+    width: 77%;
+}
+
+.comment-author-avatar {
+    display: block;
+    float: left;
+    position: relative;
+    width: 22%;
+}
+
+.comments-area ol {
+    display: block;
+    margin: 5em 0 0 0;
+    position: relative;
+    width: 100%;
+}
+
+.comments-area .avatar.photo {
+    border-radius: 48px;
+}
+
+.comment-meta {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.comment-metadata,
+.comment-author.vcard {
+    display: block;
+    float: left;
+    position: relative;
+}
+
+.comment-metadata {
+    margin-left: 0.5em;
+}
+
+.comment-content {
+    margin-top: 1em;
+}
+
+.comment-author.vcard .fn {
+    color: #f7931e;
+}
+
+.comment-metadata a {
+    color: #f7931e;
+    text-decoration: none;
+}
+
+.comment-list .comment {
+    border-bottom: 1px solid orange;
+    border-top: 1px solid orange;
+    display: block;
+    float: left;
+    padding-bottom: 1em;
+    padding-top: 2em;
+    position: relative;
 }
 
 /*--------------------------------------------------------------

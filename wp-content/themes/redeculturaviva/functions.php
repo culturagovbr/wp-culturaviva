@@ -238,3 +238,8 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load Widgets file.
  */
 require get_template_directory() . '/inc/widgets.php';
+
+/**
+ * Load Comment Template file.
+ */
+require get_template_directory() . '/template-parts/comment-template.php';
