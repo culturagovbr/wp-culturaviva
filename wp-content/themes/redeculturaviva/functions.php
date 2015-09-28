@@ -21,6 +21,11 @@ class RedeCulturaViva
 		
 		add_filter('embed_oembed_html', array($this, 'add_video_embed_div'), 10, 3);
 		
+		add_action( 'wp_ajax_nopriv_get_footer', array($this, 'get_footer'));
+		add_action( 'wp_ajax_get_footer', array($this, 'get_footer'));
+		add_action( 'wp_ajax_nopriv_get_header', array($this, 'get_header'));
+		add_action( 'wp_ajax_get_header', array($this, 'get_header'));
+		
 	}
 	
 	/**
@@ -203,6 +208,32 @@ class RedeCulturaViva
 		} else {
 			return $html;
 		}
+	}
+	
+	function get_footer()
+	{?>
+		<head>
+			<meta charset="<?php bloginfo( 'charset' ); ?>">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="profile" href="http://gmpg.org/xfn/11">
+			<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+			<?php wp_head(); ?>
+		</head>
+		
+		<div id="barra-identidade" style="display: none;">
+			<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a class="link-barra" href="http://brasil.gov.br">Brasil</a></div><span class="acesso-info"><a class="link-barra" href="http://brasil.gov.br/barra#acesso-informacao">Acesso à informação</a></span><nav><ul class="list"><li><a id="menu-icon" href="#"></a></li><li class="list-item first"><a class="link-barra" href="http://brasil.gov.br/barra#participe">Participe</a></li><li class="list-item"><a id="barra-brasil-orgao" class="link-barra" href="http://www.servicos.gov.br/?pk_campaign=barrabrasil">Serviços</a></li><li class="list-item"><a class="link-barra" href="http://www.planalto.gov.br/legislacao">Legislação</a></li><li class="list-item last last-item"><a class="link-barra" href="http://brasil.gov.br/barra#orgaos-atuacao-canais">Canais</a></li></ul></nav></div></div>
+			<script async="" defer="" type="text/javascript" src="http://barra.brasil.gov.br/barra.js"></script>
+		</div>
+		
+		<?php 
+		get_footer();
+		die;
+	}
+	
+	function get_header()
+	{
+		get_header();
+		die;
 	}
 
 }
