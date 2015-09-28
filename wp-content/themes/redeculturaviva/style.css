@@ -1124,9 +1124,13 @@ header .main-navigation a:hover {
     color: #94022C;
 }
 
-.page .post-thumbnail-box,
-.single .post-thumbnail-box {
+.page .post-thumbnail-box {
     height: 290px;
+    width: 100%;
+}
+
+.single .post-thumbnail-box {
+    height: 190px;
     width: 100%;
 }
 
@@ -1183,7 +1187,7 @@ header .main-navigation a:hover {
 }
 
 .single .entry-content {
-    margin-top: 340px;
+    margin-top: 240px;
     padding-right: 2em;
 }
 
