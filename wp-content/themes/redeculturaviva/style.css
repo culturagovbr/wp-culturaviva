@@ -1098,6 +1098,7 @@ header .main-navigation a:hover {
 }
 
 .page .site-content,
+.archive .site-content,
 .single .site-content {
     background-color: #fff;
     border-top: 1px solid #000;
@@ -1105,8 +1106,22 @@ header .main-navigation a:hover {
 }
 
 .page h1,
+.archive h1,
 .single h1 {
     color: #d82e5f;
+}
+
+.page a,
+.archive a,
+.single a {
+    color: #d82e5f;
+    text-decoration: none;
+}
+
+.page a:hover,
+.archive a:hover,
+.single a:hover {
+    color: #94022C;
 }
 
 .page .post-thumbnail-box,
@@ -1128,7 +1143,8 @@ header .main-navigation a:hover {
     text-align: center;
 }
 
-.single .wp-caption .wp-caption-text
+.single .wp-caption .wp-caption-text,
+.archive .wp-caption .wp-caption-text,
 .page .wp-caption .wp-caption-text {
     background-color: #f1f1f1;
     font-size: 0.75em;
@@ -1138,16 +1154,20 @@ header .main-navigation a:hover {
 }
 
 .single #primary,
-.single #secondary {
+.archive #primary,
+.single #secondary,
+.archive #secondary {
 	display: block;
 	position: relative;
 	float: left;
 }
 
+.archive #primary,
 .single #primary {
 	width: 65%;
 }
 
+.archive #secondary,
 .single #secondary {
 	width: 31%;
 	margin-left: 2em
@@ -1304,6 +1324,7 @@ textarea {
 
 .comment-notes {
 	color: #000;
+    font-size: 0.75em;
 }
 
 .comments-area input.submit {
@@ -1499,7 +1520,32 @@ object {
 	display: block;
 }
 
+@media screen and (max-width: 870px) {
+	.archive #primary,
+	.single #primary {
+	    width: 64%;
+	}
+}
+
 @media screen and (max-width: 800px) {
+	
+	.single #primary,
+	.archive #primary,
+	.single #secondary,
+	.archive #secondary {
+		width: 100%;
+	}
+	
+	.single #secondary,
+	.archive #secondary {
+		margin-left: 0;
+	}
+	
+	.single .post-thumbnail-box {
+		left: 0;
+		width: 100%;
+	}
+	
 	#home-sidebar .widget {
 	    margin-top: 0;
 	    width: 48%;
