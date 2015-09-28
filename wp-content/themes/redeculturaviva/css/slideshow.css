@@ -66,6 +66,7 @@ ul.slides {
     padding: 1em;
     position: absolute;
     width: 32%;
+    overflow: hidden;
 }
 
 .highlights .entry-title > a {
@@ -91,4 +92,61 @@ ul.slides {
 
 .highlights .entry-summary img {
     max-height: 190px;
+}
+
+@media screen and (max-width: 800px) {
+	.cycle-slideshow {
+    	height: 240px;
+	}
+	.highlights-image {
+		height: 240px;
+	}
+	.cycle-pager {
+		top: 158px;
+	}
+	.slides .bd {
+		height: 55px;
+		width: 40%;
+		padding: 0.5em;
+	}
+	.highlights .entry-title
+	{
+		font-size: 1.4em;
+		margin-top: 0.4em;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.cycle-slideshow {
+    	height: 190px;
+	}
+	.highlights-image {
+		height: 190px;
+	}
+	.cycle-pager {
+		top: 108px;
+	}
+	
+}
+
+@media screen and (max-width: 480px) {
+	.cycle-slideshow {
+    	height: 145px;
+	}
+	.highlights-image {
+		height: 145px;
+	}
+	.cycle-pager {
+		top: 64px;
+	}
+	.slides .bd {
+		height: 55px;
+		width: 40%;
+		padding: 0.5em;
+	}
+	.highlights .entry-title
+	{
+		font-size: 1.2em;
+		margin-top: 0.8em;
+	}
 }
