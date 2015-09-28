@@ -9,7 +9,7 @@ class Oportunidades
 				
 		);
 		
-		//add_action('init', array($this, 'init'));
+		add_action('init', array($this, 'init'));
 		add_action('init', array($this, 'rewrite_rules'));
 		add_action('template_redirect', array($this, 'form'));
 		add_action('wp_ajax_resetpass', array($this, 'form'));
@@ -21,11 +21,68 @@ class Oportunidades
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts') );
 		add_action( 'wp_enqueue_scripts', array($this, 'css'));
 		add_action( 'wp_enqueue_scripts', array($this, 'javascript'));
-		add_action( 'add_meta_boxes', array($this, 'oportunidade_oportunidade_custom_meta') );
+// 		add_action( 'add_meta_boxes', array($this, 'oportunidade_custom_meta') );
 		
 	}
+	
+	function init()
+	{
+		$this->Add_custom_Post();
+	
+	}
+	
+	function Add_custom_Post()
+	{
+		$labels = array
+		(
+				'name' => __('Oportunidade','rede-cultura-viva'),
+				'singular_name' => __('Oportunidade','rede-cultura-viva'),
+				'add_new' => __('Nova Oportunidade','rede-cultura-viva'),
+				'add_new_item' => __('Adicionar nova Oportunidade','rede-cultura-viva'),
+				'edit_item' => __('Editar Oportunidade','rede-cultura-viva'),
+				'new_item' => __('Nova Oportunidade','rede-cultura-viva'),
+				'view_item' => __('Ver Oportunidade','rede-cultura-viva'),
+				'search_items' => __('Procurar por uma Oportunidade','rede-cultura-viva'),
+				'not_found' =>  __('Oportunidade não encontrada','rede-cultura-viva'),
+				'not_found_in_trash' => __('Oportunidade não encontrada na lixeira','rede-cultura-viva'),
+				'parent_item_colon' => '',
+				'menu_name' => __('Oportunidade','rede-cultura-viva')
+	
+		);
+	
+		$args = array
+		(
+				'label' => __('Oportunidade','rede-cultura-viva'),
+				'labels' => $labels,
+				'description' => __('Oportunidades','rede-cultura-viva'),
+				'public' => true,
+				'publicly_queryable' => true, // public
+				//'exclude_from_search' => '', // public
+				'show_ui' => true, // public
+				'show_in_menu' => true,
+				'menu_position' => 5,
+				// 'menu_icon' => '',
+				'capability_type' => array('post','posts'),
+				'map_meta_cap' => true,
+				'hierarchical' => false,
+				'supports' => array('title', 'editor', 'author', 'excerpt', 'trackbacks','thumbnail', 'revisions', 'comments'),
+				'register_meta_box_cb' => array($this, 'oportunidade_custom_meta'), // função para chamar na edição
+				'taxonomies' => array(), // Taxionomias já existentes relaciondas, vamos criar e registrar na sequência
+				'permalink_epmask' => 'EP_PERMALINK ',
+				'has_archive' => true, // Opção de arquivamento por slug
+				'rewrite' => true,
+				'query_var' => true,
+				'can_export' => true//, // veja abaixo
+				//'show_in_nav_menus' => '', // public
+				//'_builtin' => '', // Core
+				//'_edit_link' => '' // Core
+	
+		);
+	
+		register_post_type("oportunidade", $args);
+	}
 
-	function oportunidade_oportunidade_custom_meta()
+	function oportunidade_custom_meta()
 	{
 		add_meta_box("oportunidade_meta", __("Detalhes da Oportunidade", 'oportunidade'), array($this, 'oportunidade_meta'), 'oportunidade', 'side', 'default');
 		//add_meta_box("second_image_meta", __("Imagens da Oportunidade", 'oportunidade'), array($this, 'second_image_meta'), 'oportunidade', 'side', 'default');
@@ -38,18 +95,18 @@ class Oportunidades
 		$post = array(
 			'post_title' => array(
 				'slug' => 'post_title',
-				'title' => __('Tema', 'oportunidade'),
+				'title' => __('Título', 'oportunidade'),
 				'tip' => '',
 				'required' => true,
 				'buildin' => true
 			),
 			'post_content' => array(
 				'slug' => 'post_content',
-				'title' => __('Elementos de DH', 'oportunidade'),
+				'title' => __('Descrição', 'oportunidade'),
 				'tip' => __('Maximum 2000 characters', 'oportunidade'),
 				'required' => true,
-				//'type' => 'wp_editor',
-				'type' => 'textarea',
+				'type' => 'wp_editor',
+				//'type' => 'textarea',
 				'rows' => 10,
 				'buildin' => true
 			),

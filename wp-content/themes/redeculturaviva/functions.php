@@ -244,3 +244,8 @@ require get_template_directory() . '/inc/widgets.php';
  * Load Comment Template file.
  */
 require get_template_directory() . '/template-parts/comment-template.php';
+
+/**
+ * Load Oportunidade file.
+ */
+require get_template_directory() . '/inc/oportunidades/oportunidades.php';

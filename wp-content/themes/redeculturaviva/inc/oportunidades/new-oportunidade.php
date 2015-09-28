@@ -6,7 +6,7 @@ global $Oportunidade_global;
 
 $oportunidade = $Oportunidade_global;
 
-$buttonLabel = __('Colocar minha oportunidade no mapa', 'oportunidade');
+$buttonLabel = __('Colocar minha oportunidade na rede', 'oportunidade');
 
 $publish = array_key_exists('publish', $_POST) && ($_POST['publish'] == 'Publish' || $_POST['publish'] == 'Publish Oportunidade' || $_POST['publish'] == $buttonLabel );
 
@@ -61,7 +61,7 @@ else
 	$has_thumbnail4 = false;
 	
 	//$title = $post_type_object->labels->add_new_item;
-	$title = "Preencha os campos abaixo com informações sobre sua pesquisa continuada em artes cênicas ou performativas.";
+	$title = "Preencha os campos abaixo com informações sobre sua oportunidade.";
 	
 	$editing = true;
 	$post = null;
@@ -313,7 +313,7 @@ else
 			<div class="home-entry <?php echo Oportunidades::NEW_OPORTUNIDADE_PAGE ?> " >
 				<div class="container">
 					<div class="row">
-						<div class="new-oportunidade-sucess"><?php _e('Sua pesquisa continuada foi cadastrada e aguarda aprovação de nossos moderadores. Em até 15 dias ela deve estar disponível no Mapa. Obrigado ;)'); ?>
+						<div class="new-oportunidade-sucess"><?php _e('A oportunidade foi cadastrada e aguarda aprovação de nossos moderadores. Obrigado ;)'); ?>
 						</div>
 					</div>
 				</div>
@@ -390,7 +390,7 @@ else
 	echo $form_extra;
 	
 	
-	/*$fields = $oportunidade->getFields();
+	$fields = $oportunidade->getFields();
 	foreach ($fields as $field)
 	{
 		Oportunidades::print_field($field);
@@ -401,58 +401,7 @@ else
 		Oportunidades::print_field($taxonomy->name, array(
 			'label' => $taxonomy->labels->name,
 		));
-	}*/
-	
-	$fields = $oportunidade->getFields();
-	Oportunidades::print_field($fields['Data da atividade']);
-	Oportunidades::print_field('territorio', array(
-			'label' => 'Estado e Cidade',
-			'required' => true,
-			'type' => 'estadocidade'
-	));
-	Oportunidades::print_field($fields['Educador responsável']);
-	Oportunidades::print_field($fields['post_title']);
-	Oportunidades::print_field('acao', array(
-			'label' => 'Ação em DH',
-			'outro' => true,
-			'type' => 'dropdown',
-	));
-	Oportunidades::print_field('eixo', array(
-			'label' => 'Eixo',
-			'outro' => true,
-			'type' => 'dropdown',
-	));
-	Oportunidades::print_field($fields['Direito Violado/Abordado']);
-	Oportunidades::print_field('sujeito', array(
-			'label' => 'Sujeito de direito',
-			'outro' => true,
-			'type' => 'dropdown',
-	));
-	Oportunidades::print_field($fields['Elementos de DH']);
-	Oportunidades::print_field($fields['Organizações/parcerias']);
-	Oportunidades::print_field($fields['Nº de participantes']);
-	Oportunidades::print_field($fields['Nº de masculino']);
-	Oportunidades::print_field($fields['Nº de feminino']);
-	//Oportunidades::print_field($fields['Sócio economico']);
-	Oportunidades::print_field($fields['Nº de pessoas com deficiencia']);
-	Oportunidades::print_field($fields['Nº de negro']);
-	Oportunidades::print_field($fields['Nº de indios']);
-	Oportunidades::print_field($fields['Nº de amarelos']);
-	Oportunidades::print_field($fields['Nº de brancos']);
-	Oportunidades::print_field($fields['Nº de crianças']);
-	Oportunidades::print_field($fields['Nº de jovens']);
-	Oportunidades::print_field($fields['Nº de adultos']);
-	Oportunidades::print_field($fields['Nº de idosos']);
-	Oportunidades::print_field($fields['1-grau-incompleto']);
-	Oportunidades::print_field($fields['1-grau-completo']);
-	Oportunidades::print_field($fields['Nº de 2 grau incompleto']);
-	Oportunidades::print_field($fields['Nº de 2 grau completo']);
-	Oportunidades::print_field($fields['Nº de 3 grau incompleto']);
-	Oportunidades::print_field($fields['Nº de 3 grau completo']);
-	//Oportunidades::print_field($fields['Data de chegada']);
-	//Oportunidades::print_field($fields['Pendência']);
-	//Oportunidades::print_field($fields['Data de pagamento']);
-	
+	}
 	
 	?>
  	<br/>
@@ -471,22 +420,6 @@ else
 			if($has_thumbnail && array_key_exists('thumbnail', $attach))
 			{?>
 				<img src="<?php echo $attach['thumbnail']; ?>"><?php
-			}?>
-		</div>
-		<div class="images-thumbnail-block images-thumbnail2">
-			<label for="thumbnail2" class="oportunidade-item-label">
-				<div class="oportunidade-item-title"><?php _e('Anexo', 'oportunidade'); ?>
-				</div>
-				<div class="oportunidade-item-tip-text">
-					<?php _e('&nbsp;', 'oportunidade'); ?>
-				</div>
-			</label>
-			<input type="file" name="thumbnail2" id="thumbnail2"
-				value="<?php echo array_key_exists('thumbnail2', $_REQUEST) ? esc_url($_REQUEST['thumbnail2']) : ''; ?>"
-				onchange="displayPreview(this.files, 'thumbnail2');" class="oportunidade-file-upload"><?php
-			if($has_thumbnail2 && array_key_exists('thumbnail2', $attach))
-			{?>
-				<img src="<?php echo $attach['thumbnail2']; ?>"><?php
 			}?>
 		</div>
 	</div>
