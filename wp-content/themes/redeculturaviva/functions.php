@@ -211,28 +211,16 @@ class RedeCulturaViva
 	}
 	
 	function get_fonts()
-	{
-		if(is_admin()) :  //url for ajax ?>
+	{?>
 			@font-face {
 			    font-family: DroidSans;
-			    src: url(../wp-content/themes/redeculturaviva/fonts/droid-sans/DroidSans.ttf);
+			    src: url(<?php echo get_template_directory_uri(). '/fonts/droid-sans/DroidSans.ttf'; ?>);
 			}
 			
 			@font-face {
 			    font-family: DroidSans-Bold;
-			    src: url(../wp-content/themes/redeculturaviva/fonts/droid-sans/DroidSans-Bold.ttf);
-			}
-		<?php else : ?>
-			@font-face {
-			    font-family: DroidSans;
-			    src: url(wp-content/themes/redeculturaviva/fonts/droid-sans/DroidSans.ttf);
-			}
-			
-			@font-face {
-			    font-family: DroidSans-Bold;
-			    src: url(wp-content/themes/redeculturaviva/fonts/droid-sans/DroidSans-Bold.ttf);
-			}
-		<?php endif;
+			    src: url(<?php echo get_template_directory_uri(). '/fonts/droid-sans/DroidSans-Bold.ttf'; ?>);
+			}<?php
 	}
 	
 	function get_footer($param = '', $die = true)
