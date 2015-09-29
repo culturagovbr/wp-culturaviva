@@ -19,12 +19,14 @@ class RedeCulturaViva
 		add_action( 'pre_get_posts', array($this, 'pre_get_posts' ));
 		add_action( 'excerpt_length', array($this, 'excerpt_length' ));
 		
-		add_filter('embed_oembed_html', array($this, 'add_video_embed_div'), 10, 3);
+		add_filter( 'embed_oembed_html', array($this, 'add_video_embed_div'), 10, 3);
 		
 		add_action( 'wp_ajax_nopriv_get_footer', array($this, 'get_footer'));
 		add_action( 'wp_ajax_get_footer', array($this, 'get_footer'));
 		add_action( 'wp_ajax_nopriv_get_header', array($this, 'get_header'));
 		add_action( 'wp_ajax_get_header', array($this, 'get_header'));
+		add_action( 'init', array($this, 'custom_rewrite_rules'));
+		add_action( 'wp_loaded', array($this, 'check_rewrite' ));
 		
 	}
 	
@@ -585,7 +587,35 @@ class RedeCulturaViva
 		<?php
 		if($die) die();
 	}
-
+	
+	function custom_rewrite_rules()
+	{
+	
+		add_rewrite_rule('oportunidades(.*)', 'index.php?post_type=oportunidade$matches[1]', 'top');
+		add_rewrite_rule('noticias(.*)', 'index.php?category_name=noticias$matches[1]', 'top');
+		add_rewrite_rule('videos(.*)', 'index.php?category_name=videos$matches[1]', 'top');
+		
+	}
+	
+	function check_rewrite()
+	{
+		$rules = get_option( 'rewrite_rules' );
+		$found = false;
+		if(is_array($rules))
+		{
+			foreach ($rules as $rule)
+			{
+				if(strpos($rule, 'videos') !== false)
+				{
+					$found = true;
+					break;
+				}
+			}
+			if ( ! $found ) {
+				global $wp_rewrite; $wp_rewrite->flush_rules();
+			}
+		}
+	}
 }
 
 global $RedeCulturaViva;

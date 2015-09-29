@@ -22,6 +22,7 @@ class Oportunidades
 		add_action( 'wp_enqueue_scripts', array($this, 'css'));
 		add_action( 'wp_enqueue_scripts', array($this, 'javascript'));
 // 		add_action( 'add_meta_boxes', array($this, 'oportunidade_custom_meta') );
+		add_action( 'wp_loaded', array($this, 'check_oportunidade_rewrite' ));
 		
 	}
 	
@@ -254,10 +255,28 @@ class Oportunidades
 		return $public_query_vars;
 	}
 	
+	function check_oportunidade_rewrite() {
+		$rules = get_option( 'rewrite_rules' );
+		$found = false;
+		if(is_array($rules))
+		{
+			foreach ($rules as $rule)
+			{
+				if(strpos($rule, 'oportunidade') !== false)
+				{
+					$found = true;
+					break;
+				}
+			}
+			if ( ! $found ) {
+				global $wp_rewrite; $wp_rewrite->flush_rules();
+			}
+		}
+	}
+	
 	function rewrite_rules()
 	{
 		add_rewrite_rule('^'.self::NEW_OPORTUNIDADE_PAGE.'(.*)', 'index.php?'.self::NEW_OPORTUNIDADE_PAGE.'=true$matches[1]', 'top');
-		flush_rewrite_rules(false);
 	}
 	
 	function form()
