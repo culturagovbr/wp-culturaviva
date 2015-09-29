@@ -13,7 +13,7 @@
 $thumbnail_id = get_post_thumbnail_id(); 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php intval($thumbnail_id) > 0 ? post_class('has-thumbnail') : post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 

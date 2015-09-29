@@ -27,6 +27,8 @@ class RedeCulturaViva
 		add_action( 'wp_ajax_get_header', array($this, 'get_header'));
 		add_action( 'init', array($this, 'custom_rewrite_rules'));
 		add_action( 'wp_loaded', array($this, 'check_rewrite' ));
+		add_action( 'add_meta_boxes', array($this, 'custom_metas') );
+		add_action( 'save_post', array($this, 'save_post_meta') );
 		
 	}
 	
@@ -515,6 +517,14 @@ class RedeCulturaViva
 				display: block;
 			}
 			
+			.main-navigation button.menu-toggle {
+			    background-color: #fbed1d;
+			    position: absolute;
+			    right: 0;
+			    top: 0;
+			    color: #078979;
+			}
+			
 			@media screen and (min-width: 960px) {
 				.menu-toggle {
 					display: none;
@@ -616,6 +626,89 @@ class RedeCulturaViva
 			}
 		}
 	}
+	
+	public static function has_sidebar($post_id = null)
+	{
+		if(is_null($post_id)) $post_id = get_the_ID();
+		
+		if(!is_int($post_id) || $post_id < 1 ) return true;
+		
+		return ! (get_post_meta($post_id, '_hide-sidebar', true) == 'Y');
+	}
+	
+	function custom_metas()
+	{
+		add_meta_box("sidebar_meta", __("Post Layout", 'rede-cultura-viva'), array($this, 'sidebar_meta'), 'post', 'side', 'default');
+	}
+	
+	function sidebar_meta()
+	{
+		
+		wp_nonce_field( 'redeculturaviva_meta_inner_custom_box', 'redeculturaviva_meta_inner_custom_box_nonce' );
+		
+		$id = 'hide-sidebar';
+		$value = "Y";
+		$label_item = __("Hide Sidebar", 'rede-cultura-viva');
+		$post_id = get_the_ID();
+		$i = 1;
+		$dado = get_post_meta($post_id, '_'.$id, true);
+		
+		?>
+		<div class="redeculturaviva-item redeculturaviva-item-checkbox <?php echo $id; ?>">
+			<div class="redeculturaviva-item-input-checkbox-block"><?php
+				if(array_key_exists($id, $_REQUEST))
+				{
+					if(is_string($_REQUEST[$id])) 
+					{
+						$dado = $_REQUEST[$id];
+					}
+				}
+				echo '<input id="'.("$id-option-$i").'" type="checkbox" name="'.$id.'" value="'.$value.'" '.($value == $dado ? 'checked="checked"': '').' ><label for="'.("$id-option-$i").'" class="redeculturaviva-item-input-checkbox" >'.$label_item.'</label>';?>
+			</div>
+		</div><?php
+	}
+	
+	public function save_post_meta( $post_id )
+	{
+		/*
+		 * We need to verify this came from the our screen and with proper authorization,
+			* because save_post can be triggered at other times.
+			*/
+	
+		// Check if our nonce is set.
+		if ( ! isset( $_POST['redeculturaviva_meta_inner_custom_box_nonce'] ) )
+		{
+			return $post_id;
+		}
+	
+		$nonce = $_POST['redeculturaviva_meta_inner_custom_box_nonce'];
+	
+		// Verify that the nonce is valid.
+		if ( ! wp_verify_nonce( $nonce, 'redeculturaviva_meta_inner_custom_box' ) )
+		{
+			return $post_id;
+		}
+	
+		// If this is an autosave, our form has not been submitted,
+		//     so we don't want to do anything.
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+		{
+			return $post_id;
+		}
+		
+		$id = 'hide-sidebar';
+		
+		if( array_key_exists($id, $_POST) )
+		{
+			update_post_meta($post_id, "_".$id, $_POST[$id]);
+		}
+		else // checkbox not checked
+		{
+			delete_post_meta($post_id, "_".$id);
+		}
+		
+	}
+	
 }
 
 global $RedeCulturaViva;

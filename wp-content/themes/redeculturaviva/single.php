@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area <?php echo RedeCulturaViva::has_sidebar() ? 'has-sidebar' : '' ?>">
 		<main id="main" class="site-main" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
@@ -30,5 +30,10 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php
+	if( RedeCulturaViva::has_sidebar() )
+	{ 
+		get_sidebar();
+	}
+?>
 <?php get_footer(); ?>
