@@ -18,9 +18,15 @@
 .cycle-pager > * { cursor: pointer;}
 
 /* prev / next links */
-.cycle-prev, .cycle-next { position: absolute; top: 0; width: 30%; z-index: 800; height: 100%; cursor: pointer; }
-.cycle-prev { left: 0;  }
-.cycle-next { right: 0; }
+.cycle-prev, .cycle-next { position: absolute; top: 0; z-index: 800; height: 100%; cursor: pointer; }
+.cycle-prev {
+	left: 0;
+	width: 8%;
+}
+.cycle-next {
+	right: 0;
+	width: 30%;
+}
 
 .cycle-prev div,
 .cycle-next div
