@@ -228,6 +228,10 @@ class RedeCulturaViva
 		<style>
 			<?php $this->get_fonts(); ?>
 			
+			*, *::before, *::after {
+			    box-sizing: inherit;
+			}
+			
 			body,
 			button,
 			input,
@@ -238,6 +242,7 @@ class RedeCulturaViva
 				font-size: 16px;
 				font-size: 1rem;
 				line-height: 1.5;
+				margin: 0;
 			}
 			
 			.site-info {
@@ -367,6 +372,10 @@ class RedeCulturaViva
 			
 			<?php $this->get_fonts(); ?>
 			
+			*, *::before, *::after {
+			    box-sizing: inherit;
+			}
+			
 			body,
 			button,
 			input,
@@ -377,6 +386,7 @@ class RedeCulturaViva
 				font-size: 16px;
 				font-size: 1rem;
 				line-height: 1.5;
+				margin: 0;
 			}
 			
 			.site-header {
