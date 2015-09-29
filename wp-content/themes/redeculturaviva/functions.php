@@ -210,30 +210,382 @@ class RedeCulturaViva
 		}
 	}
 	
-	function get_footer()
+	function get_fonts()
+	{
+		if(is_admin()) :  //url for ajax ?>
+			@font-face {
+			    font-family: DroidSans;
+			    src: url(../wp-content/themes/redeculturaviva/fonts/droid-sans/DroidSans.ttf);
+			}
+			
+			@font-face {
+			    font-family: DroidSans-Bold;
+			    src: url(../wp-content/themes/redeculturaviva/fonts/droid-sans/DroidSans-Bold.ttf);
+			}
+		<?php else : ?>
+			@font-face {
+			    font-family: DroidSans;
+			    src: url(wp-content/themes/redeculturaviva/fonts/droid-sans/DroidSans.ttf);
+			}
+			
+			@font-face {
+			    font-family: DroidSans-Bold;
+			    src: url(wp-content/themes/redeculturaviva/fonts/droid-sans/DroidSans-Bold.ttf);
+			}
+		<?php endif;
+	}
+	
+	function get_footer($param = '', $die = true)
 	{?>
-		<head>
-			<meta charset="<?php bloginfo( 'charset' ); ?>">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<link rel="profile" href="http://gmpg.org/xfn/11">
-			<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-			<?php wp_head(); ?>
-		</head>
+		<style>
+			<?php $this->get_fonts(); ?>
+			
+			body,
+			button,
+			input,
+			select,
+			textarea {
+				color: #404040;
+				font-family: DroidSans;
+				font-size: 16px;
+				font-size: 1rem;
+				line-height: 1.5;
+			}
+			
+			.site-info {
+				min-height: 50px;
+			    padding: 20px 0;
+			    width: 100%;
+			    background: #f7931e none repeat scroll 0 0;
+			    color: #fff;
+			}
+			
+			.site-padding {
+			    margin-left: auto;
+			    margin-right: auto;
+			    width: 100%;
+			    max-width: 960px;
+			    position: relative;
+			    overflow: hidden;
+			}
+			
+			.footer-proudly, .footer-proudly a {
+				text-align: center;
+				color: #ffffff;
+				display: none;
+			}
+			#footer-sidebar {
+				display: block;
+				float: left;
+				background-color: #078979;
+				position: relative;
+				overflow: hidden;
+				color: #fff;	
+				padding: 1em;
+			}
+			
+			#footer-sidebar .widget {
+			    float: left;
+			    height: 160px;
+			    text-align: center;
+			    font-size: 0.8em;
+			    margin-top: 1em;
+			}
+			
+			#footer-sidebar aside:nth-child(1) {
+				width: 46%;
+			}
+			
+			#footer-sidebar aside:nth-child(2),
+			#footer-sidebar aside:nth-child(3) {
+				width: 13%;
+			}
+			#footer-sidebar aside:nth-child(4) {
+				width: 28%;
+			}
+			
+			#footer-sidebar .widget-title {
+				color: #fbed1d;
+				font-size: 1.5em;
+				text-align: left;
+				margin-top: 0;
+			}
+			
+			#footer-sidebar ul {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#footer-sidebar li {
+				list-style: none;
+				text-align: left;
+			}
+			
+			#footer-sidebar a {
+				text-decoration: none;
+				color: #fff;
+			}
+			
+			.site-footer img {
+			    height: auto;
+			}
+		</style>
 		
 		<div id="barra-identidade" style="display: none;">
 			<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a class="link-barra" href="http://brasil.gov.br">Brasil</a></div><span class="acesso-info"><a class="link-barra" href="http://brasil.gov.br/barra#acesso-informacao">Acesso à informação</a></span><nav><ul class="list"><li><a id="menu-icon" href="#"></a></li><li class="list-item first"><a class="link-barra" href="http://brasil.gov.br/barra#participe">Participe</a></li><li class="list-item"><a id="barra-brasil-orgao" class="link-barra" href="http://www.servicos.gov.br/?pk_campaign=barrabrasil">Serviços</a></li><li class="list-item"><a class="link-barra" href="http://www.planalto.gov.br/legislacao">Legislação</a></li><li class="list-item last last-item"><a class="link-barra" href="http://brasil.gov.br/barra#orgaos-atuacao-canais">Canais</a></li></ul></nav></div></div>
 			<script async="" defer="" type="text/javascript" src="http://barra.brasil.gov.br/barra.js"></script>
 		</div>
 		
+		<footer id="colophon" class="site-footer" role="contentinfo">
+			<div class="entry-footer site-padding">
+				<div id="footer-sidebar" class="widget-area" role="complementary">
+					<?php dynamic_sidebar( 'sidebar-footer' ); ?>
+				</div><!-- #footer-sidebar -->
+			</div>
+			<div class="site-info">
+				<div class="footer-logos" id="footer-brasil">
+					<div id="wrapper-footer-brasil">
+						<a href="http://www.acessoainformacao.gov.br/">
+							<span class="logo-acesso-footer">
+							</span>
+						</a>
+						<span class="secretaria-footer">
+							Secretaria-Geral da Presidência da República
+						</span>
+						<a href="http://www.brasil.gov.br/">
+							<span class="logo-brasil-footer">
+							</span>
+						</a>
+					</div>
+				</div>
+			</div><!-- .site-info -->
+			<div class="footer-proudly site-padding">
+				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'rede-cultura-viva' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'rede-cultura-viva' ), 'WordPress' ); ?></a>
+				<span class="sep"> | </span>
+				<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'rede-cultura-viva' ), 'rede-cultura-viva', '<a href="http://redelivre.org.br" rel="designer">#redelivre</a>' ); ?>
+			</div>
+		</footer><!-- #colophon -->
+		
 		<?php 
-		get_footer();
-		die;
+		if($die) die();
 	}
 	
-	function get_header()
-	{
-		get_header();
-		die;
+	function get_header($param = '', $die = true)
+	{?>
+		<style>
+			/*--------------------------------------------------------------
+			## Header
+			--------------------------------------------------------------*/
+			
+			<?php $this->get_fonts(); ?>
+			
+			body,
+			button,
+			input,
+			select,
+			textarea {
+				color: #404040;
+				font-family: DroidSans;
+				font-size: 16px;
+				font-size: 1rem;
+				line-height: 1.5;
+			}
+			
+			.site-header {
+				background-color: #ffffff;
+			}
+			
+			.site-logo {
+				width: 110px;
+				height: 50px;
+			}
+			
+			.site-logo, .site-navigation {
+				display: block;
+				float: left;
+			}
+			
+			#wrapper-barra-brasil > nav {
+			    position: relative;
+			    z-index: 1000;
+			}
+			
+			.site-padding {
+			    margin-left: auto;
+			    margin-right: auto;
+			    width: 100%;
+			    max-width: 960px;
+			    position: relative;
+			    overflow: hidden;
+			}
+			/*--------------------------------------------------------------
+			## Menus
+			--------------------------------------------------------------*/
+			.entry-navigation {
+				background-color: #ffffff; 
+			}
+			
+			.main-navigation {
+				display: block;
+				float: right;
+				max-width: 850px
+			}
+			
+			header .main-navigation a {
+			    color: #000;
+			}
+			
+			header .main-navigation a:hover {
+			    color: #c0c0c0;
+			}
+			
+			.main-navigation ul {
+				display: none;
+				list-style: none;
+				margin: 0;
+				float: right;
+			}
+			
+			.main-navigation li {
+			    float: left;
+			    padding: 0.75em 1em;
+			    position: relative;
+			    text-align: center;
+			    border-left: 1px solid #dfdfdf;
+			    border-right: 1px solid #dfdfdf;
+			}
+			
+			.main-navigation a {
+				display: block;
+				text-decoration: none;
+			}
+			
+			.main-navigation ul ul {
+				box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+				float: left;
+				position: absolute;
+				top: 1.5em;
+				left: -999em;
+				z-index: 99999;
+			}
+			
+			.main-navigation ul ul ul {
+				left: -999em;
+				top: 0;
+			}
+			
+			.main-navigation ul ul a {
+				width: 200px;
+			}
+			
+			.main-navigation ul ul li {
+			
+			}
+			
+			.main-navigation li:hover > a,
+			.main-navigation li.focus > a {
+			}
+			
+			.main-navigation ul ul :hover > a,
+			.main-navigation ul ul .focus > a {
+			}
+			
+			.main-navigation ul ul a:hover,
+			.main-navigation ul ul a.focus {
+			}
+			
+			.main-navigation ul li:hover > ul,
+			.main-navigation ul li.focus > ul {
+				left: auto;
+			}
+			
+			.main-navigation ul ul li:hover > ul,
+			.main-navigation ul ul li.focus > ul {
+				left: 100%;
+			}
+			
+			.main-navigation .current_page_item > a,
+			.main-navigation .current-menu-item > a,
+			.main-navigation .current_page_ancestor > a {
+			}
+			
+			/* Small menu. */
+			.menu-toggle,
+			.main-navigation.toggled ul {
+				display: block;
+			}
+			
+			@media screen and (min-width: 960px) {
+				.menu-toggle {
+					display: none;
+				}
+				.main-navigation ul {
+					display: block;
+				}
+			}
+			
+			.site-main .comment-navigation,
+			.site-main .posts-navigation,
+			.site-main .post-navigation {
+				margin: 0 0 1.5em;
+				overflow: hidden;
+			}
+			
+			.comment-navigation .nav-previous,
+			.posts-navigation .nav-previous,
+			.post-navigation .nav-previous {
+				float: left;
+				width: 50%;
+			}
+			
+			.comment-navigation .nav-next,
+			.posts-navigation .nav-next,
+			.post-navigation .nav-next {
+				float: right;
+				text-align: right;
+				width: 50%;
+			}
+		</style>
+		<script type="text/javascript">
+		<!--
+			var headID = document.getElementsByTagName("head")[0];         
+			var cssNode = document.createElement('link');
+			cssNode.type = 'text/css';
+			cssNode.rel = 'stylesheet';
+			cssNode.href = '<?php echo get_template_directory_uri().'/css/icons.css'; ?>';
+			cssNode.media = 'screen';
+			headID.appendChild(cssNode);
+		//-->
+		</script>
+		<header id="masthead" class="site-header" role="banner">
+			<div id="barra-identidade">
+				<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a class="link-barra" href="http://brasil.gov.br">Brasil</a></div><span class="acesso-info"><a class="link-barra" href="http://brasil.gov.br/barra#acesso-informacao">Acesso à informação</a></span><nav><ul class="list"><li><a id="menu-icon" href="#"></a></li><li class="list-item first"><a class="link-barra" href="http://brasil.gov.br/barra#participe">Participe</a></li><li class="list-item"><a id="barra-brasil-orgao" class="link-barra" href="http://www.servicos.gov.br/?pk_campaign=barrabrasil">Serviços</a></li><li class="list-item"><a class="link-barra" href="http://www.planalto.gov.br/legislacao">Legislação</a></li><li class="list-item last last-item"><a class="link-barra" href="http://brasil.gov.br/barra#orgaos-atuacao-canais">Canais</a></li></ul></nav></div></div>
+				<script async="" defer="" type="text/javascript" src="http://barra.brasil.gov.br/barra.js"></script>
+			</div>
+			<?php 
+					// Check if there's a custom logo
+					$logo = get_theme_mod( 'rede-cultura-viva_logo' );
+					$logo_uri = get_template_directory_uri() . '/images/logo-undefined.png';
+					if( $logo )
+					{
+						$logo_uri =  $logo; 
+					}
+					
+					?>
+			<div class="entry-navigation site-padding">
+				<div class="site-logo">
+					<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class='site-logo-link'>
+						<img class="site-logo" src="<?php echo $logo_uri; ?>" alt="Logo <?php bloginfo ( 'name' ); ?>" />
+					</a>
+				</div>
+				<nav id="site-navigation" class="main-navigation" role="navigation">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'rede-cultura-viva' ); ?></button>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+				</nav><!-- #site-navigation -->
+			</div>
+		</header><!-- #masthead -->
+		<?php
+		if($die) die();
 	}
 
 }
