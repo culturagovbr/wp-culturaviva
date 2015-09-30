@@ -141,4 +141,8 @@ textarea {
 		width: 100%;
 	}
 	
+	#footer-sidebar aside:nth-child(4) img {
+		width: 100%;
+	}
+	
 }
