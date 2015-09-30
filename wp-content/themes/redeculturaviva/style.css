@@ -295,6 +295,8 @@ h4,
 h5,
 h6 {
 	clear: both;
+	color: #808080;
+	font-family: DroidSans;
 }
 
 p {
@@ -383,7 +385,7 @@ q {
 }
 
 hr {
-	background-color: #ccc;
+	background-color: #808080;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
@@ -734,6 +736,26 @@ a:active {
 	background-color: #fbed1d;
 }
 
+.widget li {
+    list-style: outside none none;
+    padding: 0.5em 0 0 0.5em;
+}
+
+.widget ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#secondary aside {
+	border-bottom: #f7c908 dotted 1px;
+	padding-bottom: 1em; 
+}
+
+.widget .search-field {
+    background-color:  #fbed1d;
+    width: 90%;
+    padding: 0.5em 1em;
+}
 
 /*--------------------------------------------------------------
 # Content
