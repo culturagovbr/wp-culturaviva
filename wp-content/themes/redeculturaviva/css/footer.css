@@ -1,0 +1,144 @@
+@CHARSET "UTF-8";
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: DroidSans;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.site-info {
+	min-height: 50px;
+    padding: 20px 0;
+    width: 100%;
+    background: #f7931e none repeat scroll 0 0;
+    color: #fff;
+}
+
+.site-padding {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 960px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-proudly, .footer-proudly a {
+	text-align: center;
+	color: #ffffff;
+	display: none;
+}
+#footer-sidebar {
+	display: block;
+	float: left;
+	background-color: #078979;
+	position: relative;
+	overflow: hidden;
+	color: #fff;	
+	padding: 1em;
+	width: 100%;
+}
+
+#footer-sidebar .widget {
+    float: left;
+    height: 160px;
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: 1em;
+}
+
+#footer-sidebar aside:nth-child(1) {
+	width: 46%;
+}
+
+#footer-sidebar aside:nth-child(2),
+#footer-sidebar aside:nth-child(3) {
+	width: 13%;
+}
+#footer-sidebar aside:nth-child(4) {
+	width: 28%;
+}
+
+#footer-sidebar .widget-title {
+	color: #fbed1d;
+	font-size: 1.5em;
+	text-align: left;
+	margin-top: 0;
+}
+
+#footer-sidebar ul {
+	padding: 0;
+	margin: 0;
+}
+
+#footer-sidebar li {
+	list-style: none;
+	text-align: left;
+}
+
+#footer-sidebar a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.site-footer img {
+    height: auto;
+}
+
+@media screen and (max-width: 800px) {
+	
+	#footer-sidebar .widget {
+	    height: auto;
+	}
+	
+	#footer-sidebar aside:nth-child(1) {
+		width: 60%;
+	}
+	
+	#footer-sidebar aside:nth-child(2),
+	#footer-sidebar aside:nth-child(3) {
+		width: 20%;
+	}
+	#footer-sidebar aside:nth-child(4) {
+		width: 100%;
+	}
+	
+	#footer-sidebar aside:nth-child(4) img {
+		width: 40%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	
+	#footer-sidebar .widget {
+	    height: auto;
+	}
+	
+	#footer-sidebar aside:nth-child(1) {
+		width: 100%;
+	}
+	
+	#footer-sidebar aside:nth-child(2),
+	#footer-sidebar aside:nth-child(3) {
+		width: 50%;
+	}
+	#footer-sidebar aside:nth-child(4) {
+		width: 100%;
+	}
+	
+}
