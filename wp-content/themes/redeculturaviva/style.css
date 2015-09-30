@@ -716,7 +716,7 @@ a:active {
     width: 100%;
 }
 
-.widget_mapas_culturais_events_widget li {
+.widget.widget_mapas_culturais_events_widget li {
     background-color: #f7c908;
     color: #a02238;
     display: block;
