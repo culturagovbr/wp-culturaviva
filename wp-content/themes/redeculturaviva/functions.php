@@ -234,53 +234,45 @@ class RedeCulturaViva
 			
 			<?php include get_template_directory(). '/css/footer.css';?>
 			
-		</style><?php
-		if(is_admin())
-		{?>
-			<html class="site-footer-html">
-				<body class="site-footer-body">
-		<?php
-		}?>
-		<div id="barra-identidade" style="display: none;">
-			<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a class="link-barra" href="http://brasil.gov.br">Brasil</a></div><span class="acesso-info"><a class="link-barra" href="http://brasil.gov.br/barra#acesso-informacao">Acesso à informação</a></span><nav><ul class="list"><li><a id="menu-icon" href="#"></a></li><li class="list-item first"><a class="link-barra" href="http://brasil.gov.br/barra#participe">Participe</a></li><li class="list-item"><a id="barra-brasil-orgao" class="link-barra" href="http://www.servicos.gov.br/?pk_campaign=barrabrasil">Serviços</a></li><li class="list-item"><a class="link-barra" href="http://www.planalto.gov.br/legislacao">Legislação</a></li><li class="list-item last last-item"><a class="link-barra" href="http://brasil.gov.br/barra#orgaos-atuacao-canais">Canais</a></li></ul></nav></div></div>
-			<script async="" defer="" type="text/javascript" src="http://barra.brasil.gov.br/barra.js"></script>
-		</div>
-		
-		<footer id="colophon" class="site-footer" role="contentinfo">
-			<div class="entry-footer site-padding">
-				<div id="footer-sidebar" class="widget-area" role="complementary">
-					<?php dynamic_sidebar( 'sidebar-footer' ); ?>
-				</div><!-- #footer-sidebar -->
-			</div>
-			<div class="site-info">
-				<div class="footer-logos" id="footer-brasil">
-					<div id="wrapper-footer-brasil">
-						<a href="http://www.acessoainformacao.gov.br/">
-							<span class="logo-acesso-footer">
-							</span>
-						</a>
-						<span class="secretaria-footer">
-							Secretaria-Geral da Presidência da República
-						</span>
-						<a href="http://www.brasil.gov.br/">
-							<span class="logo-brasil-footer">
-							</span>
-						</a>
-					</div>
+		</style>
+		<html class="site-footer-html">
+			<body class="site-footer-body">
+				<div id="barra-identidade" style="display: none;">
+					<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a class="link-barra" href="http://brasil.gov.br">Brasil</a></div><span class="acesso-info"><a class="link-barra" href="http://brasil.gov.br/barra#acesso-informacao">Acesso à informação</a></span><nav><ul class="list"><li><a id="menu-icon" href="#"></a></li><li class="list-item first"><a class="link-barra" href="http://brasil.gov.br/barra#participe">Participe</a></li><li class="list-item"><a id="barra-brasil-orgao" class="link-barra" href="http://www.servicos.gov.br/?pk_campaign=barrabrasil">Serviços</a></li><li class="list-item"><a class="link-barra" href="http://www.planalto.gov.br/legislacao">Legislação</a></li><li class="list-item last last-item"><a class="link-barra" href="http://brasil.gov.br/barra#orgaos-atuacao-canais">Canais</a></li></ul></nav></div></div>
+					<script async="" defer="" type="text/javascript" src="http://barra.brasil.gov.br/barra.js"></script>
 				</div>
-			</div><!-- .site-info -->
-			<div class="footer-proudly site-padding">
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'rede-cultura-viva' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'rede-cultura-viva' ), 'WordPress' ); ?></a>
-				<span class="sep"> | </span>
-				<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'rede-cultura-viva' ), 'rede-cultura-viva', '<a href="http://redelivre.org.br" rel="designer">#redelivre</a>' ); ?>
-			</div>
-		</footer><!-- #colophon --><?php
-		if(is_admin())
-		{?>
-				</body>
-			</html>
-		<?php
-		} 
+				
+				<footer id="colophon" class="site-footer" role="contentinfo">
+					<div class="entry-footer site-padding">
+						<div id="footer-sidebar" class="widget-area" role="complementary">
+							<?php dynamic_sidebar( 'sidebar-footer' ); ?>
+						</div><!-- #footer-sidebar -->
+					</div>
+					<div class="site-info">
+						<div class="footer-logos" id="footer-brasil">
+							<div id="wrapper-footer-brasil">
+								<a href="http://www.acessoainformacao.gov.br/">
+									<span class="logo-acesso-footer">
+									</span>
+								</a>
+								<span class="secretaria-footer">
+									Secretaria-Geral da Presidência da República
+								</span>
+								<a href="http://www.brasil.gov.br/">
+									<span class="logo-brasil-footer">
+									</span>
+								</a>
+							</div>
+						</div>
+					</div><!-- .site-info -->
+					<div class="footer-proudly site-padding">
+						<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'rede-cultura-viva' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'rede-cultura-viva' ), 'WordPress' ); ?></a>
+						<span class="sep"> | </span>
+						<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'rede-cultura-viva' ), 'rede-cultura-viva', '<a href="http://redelivre.org.br" rel="designer">#redelivre</a>' ); ?>
+					</div>
+				</footer><!-- #colophon -->
+			</body>
+		</html><?php
 		if($die) die();
 	}
 	
