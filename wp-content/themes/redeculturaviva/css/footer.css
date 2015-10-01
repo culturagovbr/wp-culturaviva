@@ -6,11 +6,11 @@
     box-sizing: inherit;
 }
 
-html.site-footer-html  {
+.site-footer-html  {
 	box-sizing: border-box;
 }
 
-.site-footer-html body,
+.site-footer-html ,
 .site-footer-html button,
 .site-footer-html input,
 .site-footer-html select,
