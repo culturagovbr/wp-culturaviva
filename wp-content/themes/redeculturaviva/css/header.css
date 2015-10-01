@@ -60,7 +60,8 @@ header.site-header .main-navigation a {
     color: #000;
 }
 
-header.site-header .main-navigation a:hover {
+.site-header .main-navigation li:hover,
+.site-header .main-navigation li:hover a {
     color: #c0c0c0;
 }
 
@@ -78,6 +79,7 @@ header.site-header .main-navigation a:hover {
     text-align: center;
     border-left: 1px solid #dfdfdf;
     border-right: 1px solid #dfdfdf;
+    cursor: pointer;
 }
 
 .site-header .main-navigation a {

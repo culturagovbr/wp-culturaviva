@@ -320,7 +320,7 @@ class RedeCulturaViva
 				</div>
 				<nav id="site-navigation" class="main-navigation" role="navigation">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'rede-cultura-viva' ); ?></button>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'walker' => new RedeCulturaVivaWalker_Menu ) ); ?>
 				</nav><!-- #site-navigation -->
 			</div>
 		</header><!-- #masthead --><?php
@@ -482,3 +482,9 @@ require get_template_directory() . '/template-parts/comment-template.php';
  * Load Oportunidade file.
  */
 require get_template_directory() . '/inc/oportunidades/oportunidades.php';
+
+/**
+ * Load RedeCulturaVivaWalker_Menu file.
+ */
+require get_template_directory() . '/inc/RedeCulturaVivaWalker_Menu.php';
+
