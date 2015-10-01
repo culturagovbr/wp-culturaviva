@@ -1,12 +1,12 @@
-*, *::before, *::after {
+.site-header *, .site-header *::before, .site-header *::after {
     box-sizing: inherit;
 }
 
-body,
-button,
-input,
-select,
-textarea {
+body.site-header-body,
+.site-header button,
+.site-header input,
+.site-header select,
+.site-header textarea {
 	color: #404040;
 	font-family: DroidSans;
 	font-size: 16px;
@@ -19,22 +19,23 @@ textarea {
 	background-color: #ffffff;
 }
 
-.site-logo {
+.site-header .site-logo {
 	width: 110px;
 	height: 50px;
 }
 
-.site-logo, .site-navigation {
+.site-header .site-logo,
+.site-header .site-navigation {
 	display: block;
 	float: left;
 }
 
-#wrapper-barra-brasil > nav {
+.site-header #wrapper-barra-brasil > nav {
     position: relative;
     z-index: 1000;
 }
 
-.site-padding {
+.site-header .site-padding {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -45,32 +46,32 @@ textarea {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.entry-navigation {
+.site-header .entry-navigation {
 	background-color: #ffffff; 
 }
 
-.main-navigation {
+.site-header .main-navigation {
 	display: block;
 	float: right;
 	max-width: 850px
 }
 
-header .main-navigation a {
+header.site-header .main-navigation a {
     color: #000;
 }
 
-header .main-navigation a:hover {
+header.site-header .main-navigation a:hover {
     color: #c0c0c0;
 }
 
-.main-navigation ul {
+.site-header .main-navigation ul {
 	display: none;
 	list-style: none;
 	margin: 0;
 	float: right;
 }
 
-.main-navigation li {
+.site-header .main-navigation li {
     float: left;
     padding: 0.75em 1em;
     position: relative;
@@ -79,12 +80,12 @@ header .main-navigation a:hover {
     border-right: 1px solid #dfdfdf;
 }
 
-.main-navigation a {
+.site-header .main-navigation a {
 	display: block;
 	text-decoration: none;
 }
 
-.main-navigation ul ul {
+.site-header .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
 	position: absolute;
@@ -93,53 +94,53 @@ header .main-navigation a:hover {
 	z-index: 99999;
 }
 
-.main-navigation ul ul ul {
+.site-header .main-navigation ul ul ul {
 	left: -999em;
 	top: 0;
 }
 
-.main-navigation ul ul a {
+.site-header .main-navigation ul ul a {
 	width: 200px;
 }
 
-.main-navigation ul ul li {
+.site-header .main-navigation ul ul li {
 
 }
 
-.main-navigation li:hover > a,
-.main-navigation li.focus > a {
+.site-header .main-navigation li:hover > a,
+.site-header .main-navigation li.focus > a {
 }
 
-.main-navigation ul ul :hover > a,
-.main-navigation ul ul .focus > a {
+.site-header .main-navigation ul ul :hover > a,
+.site-header .main-navigation ul ul .focus > a {
 }
 
-.main-navigation ul ul a:hover,
-.main-navigation ul ul a.focus {
+.site-header .main-navigation ul ul a:hover,
+.site-header .main-navigation ul ul a.focus {
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.site-header .main-navigation ul li:hover > ul,
+.site-header .main-navigation ul li.focus > ul {
 	left: auto;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.site-header .main-navigation ul ul li:hover > ul,
+.site-header .main-navigation ul ul li.focus > ul {
 	left: 100%;
 }
 
-.main-navigation .current_page_item > a,
-.main-navigation .current-menu-item > a,
-.main-navigation .current_page_ancestor > a {
+.site-header .main-navigation .current_page_item > a,
+.site-header .main-navigation .current-menu-item > a,
+.site-header .main-navigation .current_page_ancestor > a {
 }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
+.site-header .menu-toggle,
+.site-header .main-navigation.toggled ul {
 	display: block;
 }
 
-.main-navigation button.menu-toggle {
+.site-header .main-navigation button.menu-toggle {
     background-color: #fbed1d;
     position: absolute;
     right: 0;
@@ -148,32 +149,11 @@ header .main-navigation a:hover {
 }
 
 @media screen and (min-width: 960px) {
-	.menu-toggle {
+	.site-header .menu-toggle {
 		display: none;
 	}
-	.main-navigation ul {
+	.site-header .main-navigation ul {
 		display: block;
 	}
 }
 
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
-}
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
-}

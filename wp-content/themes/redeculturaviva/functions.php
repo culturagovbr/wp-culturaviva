@@ -297,7 +297,13 @@ class RedeCulturaViva
 			cssNode.media = 'screen';
 			headID.appendChild(cssNode);
 		//-->
-		</script>
+		</script><?php
+		if(is_admin())
+		{?>
+			<html class="site-header-html">
+				<body class="site-header-body">
+		<?php
+		}?>
 		<header id="masthead" class="site-header" role="banner">
 			<div id="barra-identidade">
 				<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a class="link-barra" href="http://brasil.gov.br">Brasil</a></div><span class="acesso-info"><a class="link-barra" href="http://brasil.gov.br/barra#acesso-informacao">Acesso à informação</a></span><nav><ul class="list"><li><a id="menu-icon" href="#"></a></li><li class="list-item first"><a class="link-barra" href="http://brasil.gov.br/barra#participe">Participe</a></li><li class="list-item"><a id="barra-brasil-orgao" class="link-barra" href="http://www.servicos.gov.br/?pk_campaign=barrabrasil">Serviços</a></li><li class="list-item"><a class="link-barra" href="http://www.planalto.gov.br/legislacao">Legislação</a></li><li class="list-item last last-item"><a class="link-barra" href="http://brasil.gov.br/barra#orgaos-atuacao-canais">Canais</a></li></ul></nav></div></div>
@@ -324,8 +330,13 @@ class RedeCulturaViva
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 				</nav><!-- #site-navigation -->
 			</div>
-		</header><!-- #masthead -->
+		</header><!-- #masthead --><?php
+		if(is_admin())
+		{?>
+				</body>
+			</html>
 		<?php
+		}
 		if($die) die();
 	}
 	
