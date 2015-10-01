@@ -292,7 +292,7 @@ class RedeCulturaViva
 			var cssNode = document.createElement('link');
 			cssNode.type = 'text/css';
 			cssNode.rel = 'stylesheet';
-			cssNode.href = '<?php echo get_template_directory_uri().'/css/icons.css'; ?>';
+			cssNode.href = '<?php echo get_template_directory_uri().(is_admin() ? '/css/icons-prefix.css' : '/css/icons.css'); ?>';
 			cssNode.media = 'screen';
 			headID.appendChild(cssNode);
 		//-->
