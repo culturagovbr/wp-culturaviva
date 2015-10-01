@@ -234,8 +234,13 @@ class RedeCulturaViva
 			
 			<?php include get_template_directory(). '/css/footer.css';?>
 			
-		</style>
-		
+		</style><?php
+		if(is_admin())
+		{?>
+			<html class="site-footer-html">
+				<body class="site-footer-body">
+		<?php
+		}?>
 		<div id="barra-identidade" style="display: none;">
 			<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a class="link-barra" href="http://brasil.gov.br">Brasil</a></div><span class="acesso-info"><a class="link-barra" href="http://brasil.gov.br/barra#acesso-informacao">Acesso à informação</a></span><nav><ul class="list"><li><a id="menu-icon" href="#"></a></li><li class="list-item first"><a class="link-barra" href="http://brasil.gov.br/barra#participe">Participe</a></li><li class="list-item"><a id="barra-brasil-orgao" class="link-barra" href="http://www.servicos.gov.br/?pk_campaign=barrabrasil">Serviços</a></li><li class="list-item"><a class="link-barra" href="http://www.planalto.gov.br/legislacao">Legislação</a></li><li class="list-item last last-item"><a class="link-barra" href="http://brasil.gov.br/barra#orgaos-atuacao-canais">Canais</a></li></ul></nav></div></div>
 			<script async="" defer="" type="text/javascript" src="http://barra.brasil.gov.br/barra.js"></script>
@@ -269,9 +274,13 @@ class RedeCulturaViva
 				<span class="sep"> | </span>
 				<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'rede-cultura-viva' ), 'rede-cultura-viva', '<a href="http://redelivre.org.br" rel="designer">#redelivre</a>' ); ?>
 			</div>
-		</footer><!-- #colophon -->
-		
-		<?php 
+		</footer><!-- #colophon --><?php
+		if(is_admin())
+		{?>
+				</body>
+			</html>
+		<?php
+		} 
 		if($die) die();
 	}
 	
