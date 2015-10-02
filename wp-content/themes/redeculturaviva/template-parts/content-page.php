@@ -29,8 +29,7 @@ if ( has_post_thumbnail() )
 	if(has_post_thumbnail())
 	{?>
 		<div class="post-thumbnail-box">
-			<div class="post-thumbnail" style="background-image: url(<?php echo $url; ?>);">
-			</div>
+			<img class="post-thumbnail" src="<?php echo $url; ?>"/>
 		</div><?php
 	}?>
 	

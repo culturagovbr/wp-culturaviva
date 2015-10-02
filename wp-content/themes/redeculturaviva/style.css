@@ -963,12 +963,12 @@ a:active {
 }
 
 .page .post-thumbnail-box {
-    height: 290px;
+    height: auto;
     width: 100%;
 }
 
 .single .post-thumbnail-box {
-    height: 190px;
+    height: auto;
     width: 100%;
 }
 
@@ -1033,13 +1033,9 @@ a:active {
     padding-right: 2em;
 }
 
-.single .has-thumbnail .entry-content {
-	margin-top: 240px;
-}
-
 .single .post-thumbnail-box {
-    left: -2em;
-    position: absolute;
+    margin-left: -32px;
+    position: relative;
     width: 106%;
 }
 
