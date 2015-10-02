@@ -10,18 +10,28 @@
 ?>
 
 <?php
-$thumbnail_id = get_post_thumbnail_id(); 
+$url = ''; //TODO default image if apply
+if ( has_post_thumbnail() )
+{
+	$post_thumbnail_id = get_post_thumbnail_id( get_the_ID() );
+	$thumb = wp_get_attachment_image_src($post_thumbnail_id, 'full',false);
+
+	if(is_array($thumb))
+	{
+		$url = $thumb[0];
+	}
+} 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php intval($thumbnail_id) > 0 ? post_class('has-thumbnail') : post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php has_post_thumbnail() > 0 ? post_class('has-thumbnail') : post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 	</header><!-- .entry-header --><?php
-	if(intval($thumbnail_id) > 0)
+	if(has_post_thumbnail())
 	{?>
 		<div class="post-thumbnail-box">
-			<div class="post-thumbnail" style="background-image: url(<?php echo wp_get_attachment_url( $thumbnail_id ); ?>);">
+			<div class="post-thumbnail" style="background-image: url(<?php echo $url; ?>);">
 			</div>
 		</div><?php
 	}?>
