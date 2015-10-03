@@ -150,6 +150,67 @@ header.site-header .main-navigation a {
     color: #078979;
 }
 
+.site-header button {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+.site-header button {
+	overflow: visible;
+}
+
+.site-header button {
+	text-transform: none;
+}
+
+.site-header button {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+
+.site-header button[disabled] {
+	cursor: default;
+}
+
+.site-header button::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+.site-header button {
+	color: #808080;
+	font-family: DroidSans;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.site-header button {
+	border: 1px solid;
+	border-color: #ccc #ccc #bbb;
+	border-radius: 3px;
+	background: #e6e6e6;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
+	color: rgba(0, 0, 0, .8);
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1;
+	padding: .6em 1em .4em;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.site-header button:hover {
+	border-color: #ccc #bbb #aaa;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+}
+
+.site-header button:focus,
+.site-header button:active {
+	border-color: #aaa #bbb #bbb;
+	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
 @media screen and (min-width: 960px) {
 	.site-header .menu-toggle {
 		display: none;

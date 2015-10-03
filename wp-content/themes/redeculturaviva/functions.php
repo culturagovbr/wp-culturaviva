@@ -295,6 +295,18 @@ class RedeCulturaViva
 			cssNode.href = '<?php echo get_template_directory_uri().(is_admin() ? '/css/icons-prefix.css' : '/css/icons.css'); ?>';
 			cssNode.media = 'screen';
 			headID.appendChild(cssNode);
+
+			<?php
+			if(is_admin()) :
+			?>
+				var newScript = document.createElement('script');
+				newScript.type = 'text/javascript';
+				newScript.src = '<?php echo get_template_directory_uri() . '/js/navigation.js'; ?>';
+				headID.appendChild(newScript);
+			<?php
+			endif;
+			?>
+			
 		//-->
 		</script>
 		<header id="masthead" class="site-header" role="banner">
