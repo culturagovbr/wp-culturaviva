@@ -58,11 +58,13 @@
 }
 
 .site-footer-html #footer-sidebar .widget {
+    border: none;
     float: left;
-    height: 190px;
-    text-align: center;
     font-size: 0.8em;
-    margin-top: 1em;
+    height: 190px;
+    margin: 1em 0;
+    padding: 0;
+    text-align: center;
 }
 
 .site-footer-html #footer-sidebar aside:nth-child(1) {
@@ -89,18 +91,34 @@
 	margin: 0;
 }
 
-.site-footer-html #footer-sidebar li {
+.site-footer-html #footer-sidebar ul.menu li,
+.site-footer-html #footer-sidebar ul li {
 	list-style: none;
 	text-align: left;
+	display: block;
+	margin: 0;
+	padding: 0.5em 0 0 0.5em;
+	box-shadow: none;
+	float: none;
+	border: none;
 }
 
-.site-footer-html #footer-sidebar a {
+.site-footer-html #footer-sidebar ul.menu li a {
 	text-decoration: none;
 	color: #fff;
 }
 
 .site-footer-html .site-footer img {
     height: auto;
+}
+
+.site-footer-html h2 {
+	clear: both;
+    font-family: DroidSans;
+    line-height: 1.5;
+    font-weight: bold;
+    margin: 0 0 1em 0;
+    
 }
 
 @media screen and (max-width: 800px) {
