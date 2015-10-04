@@ -26,8 +26,15 @@ get_header(); ?>
 				        	<div class="cycle-pager"></div>
 				        	<div class="cycle-prev"><div class="icon2-left-open"></div></div>
 	   					 	<div class="cycle-next"><div class="icon2-right-open"></div></div>
-					        <?php while ( $feature->have_posts() ) : $feature->the_post(); ?>
-					        	<?php if ( has_post_thumbnail() )
+					        <?php while ( $feature->have_posts() ) :
+					        	$feature->the_post();
+
+					        	$thumbnail2 = get_post_meta(get_the_ID(), '_thumbnail2', true);
+					        	if(strlen($thumbnail2) > 1)
+					        	{
+					        		$url = $thumbnail2;
+					        	}
+					        	elseif ( has_post_thumbnail() )
 					        	{
 			    					$post_thumbnail_id = get_post_thumbnail_id( get_the_ID() );
 			    					$thumb = wp_get_attachment_image_src($post_thumbnail_id, 'slider',false);

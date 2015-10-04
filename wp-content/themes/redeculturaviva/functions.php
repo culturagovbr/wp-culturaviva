@@ -30,6 +30,8 @@ class RedeCulturaViva
 		add_action( 'add_meta_boxes', array($this, 'custom_metas') );
 		add_action( 'save_post', array($this, 'save_post_meta') );
 		
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts') );
+		
 	}
 	
 	/**
@@ -178,6 +180,16 @@ class RedeCulturaViva
 		wp_enqueue_script('jquery-cycle2-center', get_template_directory_uri() . '/js/jquery.cycle2.center.min.js', array('jquery-cycle2'));
 		wp_enqueue_script('jquery-slider-scroller', get_template_directory_uri() . '/js/jquery.slider.scroller.js', array('jquery-cycle2'));
 		
+		
+		
+	}
+	
+	/**
+	 * Enqueue admin scripts and styles.
+	 */
+	function admin_enqueue_scripts()
+	{
+		wp_enqueue_style( 'rede-cultura-viva-admin', get_stylesheet_directory_uri()."/css/admin.css" );
 	}
 	
 	function pre_get_posts( $query ) {
@@ -380,6 +392,7 @@ class RedeCulturaViva
 	function custom_metas()
 	{
 		add_meta_box("sidebar_meta", __("Post Layout", 'rede-cultura-viva'), array($this, 'sidebar_meta'), 'post', 'side', 'default');
+		add_meta_box("second_image_meta", __("Outras imagens", 'rede-cultura-viva'), array($this, 'second_image_meta'), 'post', 'side', 'default');
 	}
 	
 	function sidebar_meta()
@@ -407,6 +420,19 @@ class RedeCulturaViva
 				echo '<input id="'.("$id-option-$i").'" type="checkbox" name="'.$id.'" value="'.$value.'" '.($value == $dado ? 'checked="checked"': '').' ><label for="'.("$id-option-$i").'" class="redeculturaviva-item-input-checkbox" >'.$label_item.'</label>';?>
 			</div>
 		</div><?php
+	}
+	
+	function second_image_meta($post)
+	{
+		$stored_meta = get_post_meta( $post->ID, '_thumbnail2', true)
+		?>
+		<p>
+		    <label for="meta-image" class="post-second-image-meta"><?php _e( 'Segunda Imagem', 'rede-cultura-viva' )?></label>
+		    <input type="text" name="thumbnail2" id="meta-image" value="<?php if ( isset ( $stored_meta ) ) echo $stored_meta; ?>" />
+		    <input type="button" id="meta-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'rede-cultura-viva' )?>" />
+		    <img alt="<?php _e( 'Segunda Imagem', 'rede-cultura-viva' )?>" src="<?php if ( isset ( $stored_meta ) ) echo $stored_meta; ?>" >
+		</p>
+		<?php		
 	}
 	
 	public function save_post_meta( $post_id )
@@ -448,6 +474,10 @@ class RedeCulturaViva
 			delete_post_meta($post_id, "_".$id);
 		}
 		
+		if(array_key_exists('thumbnail2', $_POST))
+		{
+			update_post_meta($post_id, '_thumbnail2', sanitize_url($_POST['thumbnail2'])); //TODO more sec
+		}
 	}
 	
 }

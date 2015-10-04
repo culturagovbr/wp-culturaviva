@@ -496,17 +496,17 @@ class Oportunidades
 	function admin_enqueue_scripts()
 	{
 		global $typenow;
-		if( $typenow == 'oportunidade' )
+		if( $typenow == 'oportunidade' || $typenow == 'post' )
 		{
 			wp_enqueue_media();
 	
 			// Registers and enqueues the required javascript.
 			wp_register_script( 'meta-box-image', get_template_directory_uri() . '/inc/oportunidades/js/meta-box-image.js', array( 'jquery' ) );
 			wp_localize_script( 'meta-box-image', 'meta_image',
-			array(
-			'title' => __( 'Choose or Upload an Image', 'oportunidade' ),
-			'button' => __( 'Use this image', 'oportunidade' ),
-			)
+				array(
+					'title' => __( 'Choose or Upload an Image', 'oportunidade' ),
+					'button' => __( 'Use this image', 'oportunidade' ),
+				)
 			);
 			wp_enqueue_script( 'meta-box-image' );
 		}

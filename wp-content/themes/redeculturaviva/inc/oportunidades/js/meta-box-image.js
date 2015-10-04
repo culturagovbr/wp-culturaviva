@@ -1,13 +1,13 @@
 /*
  * Attaches the image uploader to the input field
  */
-jQuery(document).ready(function($){
+jQuery(document).ready(function(){
 
 	// Instantiates the variable that holds the media library frame.
 	var meta_image_frame;
 
 	// Runs when the image button is clicked.
-	$('#meta-image-button').click(function(e){
+	jQuery('#meta-image-button').click(function(e){
 
 		// Prevents the default action from occuring.
 		e.preventDefault();
@@ -32,7 +32,8 @@ jQuery(document).ready(function($){
 			var media_attachment = meta_image_frame.state().get('selection').first().toJSON();
 
 			// Sends the attachment URL to our custom image input field.
-			$('#meta-image').val(media_attachment.url);
+			jQuery('#meta-image').val(media_attachment.url);
+			jQuery('#meta-image').parent().find('img').attr("src", media_attachment.url);
 		});
 
 		// Opens the media library frame.
