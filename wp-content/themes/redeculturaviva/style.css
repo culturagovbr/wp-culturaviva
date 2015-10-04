@@ -780,6 +780,13 @@ a:active {
     padding: 0.5em 1em;
 }
 
+.error404 .widget {
+    display: block;
+    float: left;
+    position: relative;
+    width: 25%;
+}
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -935,6 +942,7 @@ a:active {
     width: 85%;
 }
 
+.error404 .site-content,
 .page .site-content,
 .archive .site-content,
 .single .site-content {
@@ -943,12 +951,14 @@ a:active {
     padding: 2em;
 }
 
+.error404 h1,
 .page h1,
 .archive h1,
 .single h1 {
     color: #d82e5f;
 }
 
+.error404 a,
 .page a,
 .archive a,
 .single a {
@@ -956,6 +966,7 @@ a:active {
     text-decoration: none;
 }
 
+.error404 a:hover,
 .page a:hover,
 .archive a:hover,
 .single a:hover {
@@ -1120,6 +1131,12 @@ a:active {
     padding: 1.15em 1.15em 1.15em 3em;
     position: relative;
     width: 100%;
+}
+
+.error404 .search-field {
+    background-color:  #fbed1d;
+    width: 40%;
+    padding: 0.5em 1em;
 }
 
 /*--------------------------------------------------------------
