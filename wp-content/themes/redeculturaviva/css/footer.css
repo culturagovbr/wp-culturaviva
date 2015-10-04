@@ -114,7 +114,7 @@
     font-family: DroidSans;
     line-height: 1.5;
     font-weight: bold;
-    margin: 0 0 1em 0;
+    margin: 0 0 0.5em 0;
     
 }
 
@@ -132,21 +132,18 @@
 	    height: auto;
 	}
 	
-	.site-footer-html #footer-sidebar aside:nth-child(1) {
-		width: 60%;
+}
+
+@media screen and (max-width: 620px) {
+	
+	.site-footer-html #footer-sidebar .widget {
+	    height: auto;
 	}
 	
-	.site-footer-html #footer-sidebar aside:nth-child(2),
-	.site-footer-html #footer-sidebar aside:nth-child(3) {
-		width: 20%;
-	}
-	.site-footer-html #footer-sidebar aside:nth-child(4) {
-		width: 100%;
+	.site-footer-html #footer-sidebar aside {
+		width: 50%;
 	}
 	
-	.site-footer-html #footer-sidebar aside:nth-child(4) img {
-		width: 40%;
-	}
 }
 
 @media screen and (max-width: 480px) {
