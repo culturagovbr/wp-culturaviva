@@ -248,11 +248,16 @@ class RedeCulturaViva
 			
 		</style>
 		<div class="site-footer-html">
-			<div id="barra-identidade" style="display: none;">
-				<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a class="link-barra" href="http://brasil.gov.br">Brasil</a></div><span class="acesso-info"><a class="link-barra" href="http://brasil.gov.br/barra#acesso-informacao">Acesso à informação</a></span><nav><ul class="list"><li><a id="menu-icon" href="#"></a></li><li class="list-item first"><a class="link-barra" href="http://brasil.gov.br/barra#participe">Participe</a></li><li class="list-item"><a id="barra-brasil-orgao" class="link-barra" href="http://www.servicos.gov.br/?pk_campaign=barrabrasil">Serviços</a></li><li class="list-item"><a class="link-barra" href="http://www.planalto.gov.br/legislacao">Legislação</a></li><li class="list-item last last-item"><a class="link-barra" href="http://brasil.gov.br/barra#orgaos-atuacao-canais">Canais</a></li></ul></nav></div></div>
-				<script async="" defer="" type="text/javascript" src="http://barra.brasil.gov.br/barra.js"></script>
-			</div>
+			<?php if(is_admin()) : ?>
+				<div id="barra-brasil" style="display:none;"> 
+					<ul id="menu-barra-temp" style="list-style:none;">
+						<li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED"><a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a></li> 
+						<li><a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a></li>
+					</ul>
+				</div>
+			<?php endif; ?>
 			
+			<script defer="defer" src="//barra.brasil.gov.br/barra.js" type="text/javascript"></script>
 			<footer id="colophon" class="site-footer" role="contentinfo">
 				<div class="entry-footer site-padding">
 					<div id="footer-sidebar" class="widget-area" role="complementary">
@@ -321,10 +326,18 @@ class RedeCulturaViva
 			
 		//-->
 		</script>
+		<?php
+		if(isset($_REQUEST['js']) && 'load' == $_REQUEST['js'])
+		{?>
+			<script defer="defer" src="//barra.brasil.gov.br/barra.js" type="text/javascript"></script><?php
+		} 
+		?>
 		<header id="masthead" class="site-header" role="banner">
-			<div id="barra-identidade">
-				<div id="barra-brasil"><div id="wrapper-barra-brasil"><div class="brasil-flag"><a class="link-barra" href="http://brasil.gov.br">Brasil</a></div><span class="acesso-info"><a class="link-barra" href="http://brasil.gov.br/barra#acesso-informacao">Acesso à informação</a></span><nav><ul class="list"><li><a id="menu-icon" href="#"></a></li><li class="list-item first"><a class="link-barra" href="http://brasil.gov.br/barra#participe">Participe</a></li><li class="list-item"><a id="barra-brasil-orgao" class="link-barra" href="http://www.servicos.gov.br/?pk_campaign=barrabrasil">Serviços</a></li><li class="list-item"><a class="link-barra" href="http://www.planalto.gov.br/legislacao">Legislação</a></li><li class="list-item last last-item"><a class="link-barra" href="http://brasil.gov.br/barra#orgaos-atuacao-canais">Canais</a></li></ul></nav></div></div>
-				<script async="" defer="" type="text/javascript" src="http://barra.brasil.gov.br/barra.js"></script>
+			<div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;"> 
+				<ul id="menu-barra-temp" style="list-style:none;">
+					<li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED"><a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a></li> 
+					<li><a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a></li>
+				</ul>
 			</div>
 			<?php 
 					// Check if there's a custom logo
