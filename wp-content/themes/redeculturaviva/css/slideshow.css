@@ -38,6 +38,8 @@
     padding: 0.75em 0.25em 0.5em 1em;
     position: absolute;
     width: 3em;
+    opacity: 0.5;
+    filter: alpha(opacity=50)
 }
 
 .cycle-next div {
@@ -45,7 +47,7 @@
 	padding: 0.75em 0.25em 0.5em 0.75em;
 }
 
-.cycle-prev:hover, .cycle-next:hover { opacity: .7; filter: alpha(opacity=70) }
+.cycle-prev:hover, .cycle-next:hover { opacity: 0.4; filter: alpha(opacity=40) }
 
 .disabled { opacity: .5; filter:alpha(opacity=50); }
 
@@ -73,6 +75,8 @@ ul.slides {
     position: absolute;
     width: 32%;
     overflow: hidden;
+    opacity: 0.8;
+    filter: alpha(opacity=80)
 }
 
 .highlights .entry-title > a {
