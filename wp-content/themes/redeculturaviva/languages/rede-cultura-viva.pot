@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rede Cultura Viva Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-27 01:27-0300\n"
+"POT-Creation-Date: 2015-10-04 01:37-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jacson Passold <jacson@ethymos.com.br>\n"
 "Language-Team: \n"
@@ -20,41 +20,73 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: .\n"
 
-#: ../footer.php:40
-msgid "https://wordpress.org/"
-msgstr ""
-
-# @ _s
-#: ../footer.php:40
-#, php-format
-msgid "Proudly powered by %s"
-msgstr ""
-
-# @ _s
-#: ../footer.php:42
-#, php-format
-msgid "Theme: %1$s by %2$s."
-msgstr ""
-
 # @ _s
 #: ../header.php:25
 msgid "Skip to content"
 msgstr ""
 
 # @ _s
-#: ../header.php:49 ../functions.php:65
+#: ../functions.php:76
 msgid "Primary Menu"
 msgstr ""
 
-#: ../functions.php:119
+#: ../functions.php:130
 msgid "Home Sidebar"
 msgstr ""
 
-#: ../functions.php:128
+#: ../functions.php:139
 msgid "Footer Sidebar"
 msgstr ""
 
-#: ../home.php:60
+#: ../functions.php:148
+msgid "Post Sidebar"
+msgstr ""
+
+#: ../functions.php:285
+msgid "https://wordpress.org/"
+msgstr ""
+
+# @ _s
+#: ../functions.php:285
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+# @ _s
+#: ../functions.php:287
+#, php-format
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
+#: ../functions.php:359
+msgid "Menu"
+msgstr ""
+
+#: ../functions.php:407
+msgid "Post Layout"
+msgstr ""
+
+#: ../functions.php:408
+msgid "Outras imagens"
+msgstr ""
+
+#: ../functions.php:418
+msgid "Hide Sidebar"
+msgstr ""
+
+#: ../functions.php:443 ../functions.php:446
+#: ../inc/oportunidades/oportunidades.php:227
+msgid "Segunda Imagem"
+msgstr ""
+
+#: ../functions.php:445 ../inc/oportunidades/oportunidades.php:229
+#: ../inc/oportunidades/oportunidades.php:237
+#: ../inc/oportunidades/oportunidades.php:245
+#: ../inc/oportunidades/oportunidades.php:507
+msgid "Choose or Upload an Image"
+msgstr ""
+
+#: ../home.php:67
 #, php-format
 msgid ""
 "To display your featured posts here go to the <a href=\"%s\">Post Edit Page</"
@@ -93,31 +125,64 @@ msgstr ""
 
 # @ _s
 #: ../comments.php:31
-#, php-format
-msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgid "Comments are closed."
+msgstr ""
+
+#: ../comments.php:34
+msgid "Leave a comment."
+msgstr ""
+
+#: ../comments.php:34
+msgid "Send"
+msgstr ""
 
 # @ _s
-#: ../comments.php:40 ../comments.php:61
+#: ../comments.php:41 ../comments.php:63
 msgid "Comment navigation"
 msgstr ""
 
 # @ _s
-#: ../comments.php:43 ../comments.php:64
+#: ../comments.php:44 ../comments.php:66
 msgid "Older Comments"
 msgstr ""
 
 # @ _s
-#: ../comments.php:44 ../comments.php:65
+#: ../comments.php:45 ../comments.php:67
 msgid "Newer Comments"
 msgstr ""
 
-# @ _s
-#: ../comments.php:77
-msgid "Comments are closed."
+#: ../template-parts/comment-template.php:37
+#, php-format
+msgid "<cite class=\"fn\">%s</cite> <span class=\"says\">on</span>"
+msgstr ""
+
+#: ../template-parts/comment-template.php:40
+#: ../template-parts/comment-template.php:105
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../template-parts/comment-template.php:47
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../template-parts/comment-template.php:47
+msgid "(Edit)"
+msgstr ""
+
+#: ../template-parts/comment-template.php:92
+#, php-format
+msgid "%s <span class=\"says\">on</span>"
+msgstr ""
+
+#: ../template-parts/comment-template.php:98
+#, php-format
+msgctxt "1: date"
+msgid "%1$s"
+msgstr ""
+
+#: ../template-parts/comment-template.php:101
+msgid "Edit"
 msgstr ""
 
 # @ _s
@@ -127,12 +192,12 @@ msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
 # @ _s
-#: ../template-parts/content.php:34 ../template-parts/content-page.php:33
-#: ../template-parts/content-single.php:25
+#: ../template-parts/content.php:34 ../template-parts/content-page.php:44
+#: ../template-parts/content-single.php:45
 msgid "Pages:"
 msgstr ""
 
-#: ../template-parts/content-page.php:44 ../inc/template-tags.php:71
+#: ../template-parts/content-page.php:55 ../inc/template-tags.php:66
 #, php-format
 msgid "Edit %s"
 msgstr ""
@@ -163,6 +228,18 @@ msgid ""
 "searching can help."
 msgstr ""
 
+#: ../template-parts/content-single.php:55
+msgid "Share on Twitter"
+msgstr ""
+
+#: ../template-parts/content-single.php:56
+msgid "Share on Facebook"
+msgstr ""
+
+#: ../template-parts/content-single.php:57
+msgid "Share on Google+"
+msgstr ""
+
 #: ../inc/customizer.php:69
 msgid "Branding"
 msgstr ""
@@ -179,49 +256,41 @@ msgstr ""
 msgid "Exibe o slider na página principal"
 msgstr ""
 
-# @ _s
 #: ../inc/template-tags.php:28
 #, php-format
 msgctxt "post date"
-msgid "Posted on %s"
+msgid "Published on %s"
 msgstr ""
 
 # @ _s
-#: ../inc/template-tags.php:33
-#, php-format
-msgctxt "post author"
-msgid "by %s"
-msgstr ""
-
-# @ _s
-#: ../inc/template-tags.php:50 ../inc/template-tags.php:56
+#: ../inc/template-tags.php:45 ../inc/template-tags.php:51
 msgid ", "
 msgstr ""
 
 # @ _s
-#: ../inc/template-tags.php:52
+#: ../inc/template-tags.php:47
 #, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
 # @ _s
-#: ../inc/template-tags.php:58
+#: ../inc/template-tags.php:53
 #, php-format
 msgid "Tagged %1$s"
 msgstr ""
 
 # @ _s
-#: ../inc/template-tags.php:64
+#: ../inc/template-tags.php:59
 msgid "Leave a comment"
 msgstr ""
 
 # @ _s
-#: ../inc/template-tags.php:64
+#: ../inc/template-tags.php:59
 msgid "1 Comment"
 msgstr ""
 
 # @ _s
-#: ../inc/template-tags.php:64
+#: ../inc/template-tags.php:59
 msgid "% Comments"
 msgstr ""
 
@@ -241,100 +310,129 @@ msgstr ""
 msgid "Title CSS Class:"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:30
-msgid "Detalhes da Oportunidade"
+#: ../inc/oportunidades/oportunidades.php:39
+#: ../inc/oportunidades/oportunidades.php:40
+#: ../inc/oportunidades/oportunidades.php:50
+#: ../inc/oportunidades/oportunidades.php:56
+msgid "Oportunidade"
 msgstr ""
 
 #: ../inc/oportunidades/oportunidades.php:41
-msgid "Tema"
+#: ../inc/oportunidades/oportunidades.php:44
+msgid "Nova Oportunidade"
+msgstr ""
+
+#: ../inc/oportunidades/oportunidades.php:42
+msgid "Adicionar nova Oportunidade"
+msgstr ""
+
+#: ../inc/oportunidades/oportunidades.php:43
+msgid "Editar Oportunidade"
+msgstr ""
+
+#: ../inc/oportunidades/oportunidades.php:45
+msgid "Ver Oportunidade"
+msgstr ""
+
+#: ../inc/oportunidades/oportunidades.php:46
+msgid "Procurar por uma Oportunidade"
+msgstr ""
+
+#: ../inc/oportunidades/oportunidades.php:47
+msgid "Oportunidade não encontrada"
 msgstr ""
 
 #: ../inc/oportunidades/oportunidades.php:48
-msgid "Elementos de DH"
+msgid "Oportunidade não encontrada na lixeira"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:49
+#: ../inc/oportunidades/oportunidades.php:58
+msgid "Oportunidades"
+msgstr ""
+
+#: ../inc/oportunidades/oportunidades.php:88
+msgid "Detalhes da Oportunidade"
+msgstr ""
+
+#: ../inc/oportunidades/oportunidades.php:99
+msgid "Título"
+msgstr ""
+
+#: ../inc/oportunidades/oportunidades.php:106
+msgid "Descrição"
+msgstr ""
+
+#: ../inc/oportunidades/oportunidades.php:107
 msgid "Maximum 2000 characters"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:122
+#: ../inc/oportunidades/oportunidades.php:180
 msgid " anos"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:125
+#: ../inc/oportunidades/oportunidades.php:183
 msgid " meses"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:169
-msgid "Segunda Imagem"
-msgstr ""
-
-#: ../inc/oportunidades/oportunidades.php:171
-#: ../inc/oportunidades/oportunidades.php:179
-#: ../inc/oportunidades/oportunidades.php:187
-#: ../inc/oportunidades/oportunidades.php:431
-msgid "Choose or Upload an Image"
-msgstr ""
-
-#: ../inc/oportunidades/oportunidades.php:177
+#: ../inc/oportunidades/oportunidades.php:235
 msgid "Terceira Imagem"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:185
+#: ../inc/oportunidades/oportunidades.php:243
 msgid "Foto do Responsável"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:215
+#: ../inc/oportunidades/oportunidades.php:291
 msgid "Os arquivos permitidos são: *."
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:261
+#: ../inc/oportunidades/oportunidades.php:337
 msgid "Auto Draft"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:432
+#: ../inc/oportunidades/oportunidades.php:508
 msgid "Use this image"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:513
-#: ../inc/oportunidades/oportunidades.php:633
-#: ../inc/oportunidades/oportunidades.php:708
+#: ../inc/oportunidades/oportunidades.php:589
+#: ../inc/oportunidades/oportunidades.php:709
+#: ../inc/oportunidades/oportunidades.php:784
 msgctxt "oportunidade"
 msgid "Selecione"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:664
+#: ../inc/oportunidades/oportunidades.php:740
 msgctxt "oportunidade"
 msgid "Meses"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:677
+#: ../inc/oportunidades/oportunidades.php:753
 msgctxt "oportunidade"
 msgid "Anos"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:924
+#: ../inc/oportunidades/oportunidades.php:1000
 #, php-format
 msgid "Permissão original (%s) não localizada"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:934
+#: ../inc/oportunidades/oportunidades.php:1010
 #, php-format
 msgid "Permissão %s não localizada"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:1013
+#: ../inc/oportunidades/oportunidades.php:1089
 #: ../inc/oportunidades/new-oportunidade.php:103
 msgid "*O campo obrigatório"
 msgstr ""
 
-#: ../inc/oportunidades/oportunidades.php:1013
+#: ../inc/oportunidades/oportunidades.php:1089
 #: ../inc/oportunidades/new-oportunidade.php:103
 msgid "não foi preenchido"
 msgstr ""
 
 #: ../inc/oportunidades/new-oportunidade.php:9
-msgid "Colocar minha oportunidade no mapa"
+msgid "Colocar minha oportunidade na rede"
 msgstr ""
 
 #: ../inc/oportunidades/new-oportunidade.php:19
@@ -405,22 +503,14 @@ msgstr ""
 
 #: ../inc/oportunidades/new-oportunidade.php:316
 msgid ""
-"Sua pesquisa continuada foi cadastrada e aguarda aprovação de nossos "
-"moderadores. Em até 15 dias ela deve estar disponível no Mapa. Obrigado ;)"
+"A oportunidade foi cadastrada e aguarda aprovação de nossos moderadores. "
+"Obrigado ;)"
 msgstr ""
 
-#: ../inc/oportunidades/new-oportunidade.php:462
+#: ../inc/oportunidades/new-oportunidade.php:411
 msgid "Image de Destaque"
 msgstr ""
 
-#: ../inc/oportunidades/new-oportunidade.php:465
+#: ../inc/oportunidades/new-oportunidade.php:414
 msgid "Imagem que será exibida em listagens"
-msgstr ""
-
-#: ../inc/oportunidades/new-oportunidade.php:478
-msgid "Anexo"
-msgstr ""
-
-#: ../inc/oportunidades/new-oportunidade.php:481
-msgid "&nbsp;"
 msgstr ""
