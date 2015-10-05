@@ -331,7 +331,9 @@ class RedeCulturaViva
 					<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'rede-cultura-viva' ), 'rede-cultura-viva', '<a href="http://redelivre.org.br" rel="designer">#redelivre</a>' ); ?>
 				</div>
 			</footer><!-- #colophon -->
-		</div><?php
+		</div>
+		<!-- Piwik --> <script type="text/javascript">   var _paq = _paq || [];   _paq.push(['trackPageView']);   _paq.push(['enableLinkTracking']);   (function() {     var u="//analise.cultura.gov.br/";     _paq.push(['setTrackerUrl', u+'piwik.php']);     _paq.push(['setSiteId', 21]);     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);   })(); </script> <noscript><p><img src="//analise.cultura.gov.br/piwik.php?idsite=21" style="border:0;" alt="" /></p></noscript> <!-- End Piwik Code -->
+		<?php
 		if($die) die();
 	}
 	
