@@ -23,3 +23,5 @@ wp-content/plugins/bulk-delete
 # Sublime Text project files
 *.sublime-project
 *.sublime-workspace
+
+wp-content/themes/redeculturaviva/inc/widgets/events_widget_config.php
