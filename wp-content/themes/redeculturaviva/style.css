@@ -1028,11 +1028,11 @@ a:active {
 	float: left;
 }
 
+.archive #primary,
 .single #primary {
 	width: 100%;
 }
 
-.archive #primary,
 .single #primary.has-sidebar {
 	width: 65%;
 }
@@ -1150,6 +1150,23 @@ a:active {
     background-color:  #fbed1d;
     width: 40%;
     padding: 0.5em 1em;
+}
+
+.archive .archive-col1 {
+    display: block;
+    float: left;
+    margin-right: 1em;
+    position: relative;
+    width: 49%;
+    margin-top:1em;
+}
+
+.archive article:nth-child(odd) .archive-col1 {
+	float: right;
+}
+
+.archive .entry-content {
+	margin-top: 0;
 }
 
 /*--------------------------------------------------------------
