@@ -2,12 +2,6 @@
 
 class Mapas_Culturais_Events_Widget extends WP_Widget
 {
-	//TODO Better way to do this:
-	protected $_pghost = 'localhost';
-	protected $_pgport = '5432';
-	protected $_pgdb = 'mapas';
-	protected $_pguser = 'jacson';
-	protected $_pgpasswd = 'qwe1234';
 	
 	/**
 	 * Sets up the widgets name etc
@@ -138,7 +132,9 @@ class Mapas_Culturais_Events_Widget extends WP_Widget
 		$events = array();
 		if(function_exists('pg_connect'))
 		{
-			$pgConnection = pg_connect("host={$this->_pghost} port={$this->_pgport} dbname={$this->_pgdb} user={$this->_pguser} password={$this->_pgpasswd}");
+			$config = new Mapas_Culturais_Events_Widget_Config();
+			
+			$pgConnection = pg_connect("host={$config->_pghost} port={$config->_pgport} dbname={$config->_pgdb} user={$config->_pguser} password={$config->_pgpasswd}");
 			if($pgConnection !== false)
 			{
 				$sql = "
@@ -225,3 +221,5 @@ class Mapas_Culturais_Events_Widget extends WP_Widget
 		return $events;
 	}
 }
+
+require dirname(__FILE__) . '/events_widget_config.php';
