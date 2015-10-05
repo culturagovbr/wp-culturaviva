@@ -25,6 +25,8 @@ class RedeCulturaViva
 		add_action( 'wp_ajax_get_footer', array($this, 'get_footer'));
 		add_action( 'wp_ajax_nopriv_get_header', array($this, 'get_header'));
 		add_action( 'wp_ajax_get_header', array($this, 'get_header'));
+		add_action( 'wp_ajax_nopriv_get_header_footer_test', array($this, 'get_header_footer_test'));
+		add_action( 'wp_ajax_get_header_footer_test', array($this, 'get_header_footer_test'));
 		add_action( 'init', array($this, 'custom_rewrite_rules'));
 		add_action( 'wp_loaded', array($this, 'check_rewrite' ));
 		add_action( 'add_meta_boxes', array($this, 'custom_metas') );
@@ -261,6 +263,23 @@ class RedeCulturaViva
 		
 		//-->
 		</script><?php
+	}
+	
+	function get_header_footer_test()
+	{
+		$this->get_header('', false);?>
+		<div class="content">
+			
+			<h1>Somos todos</h1><br/>
+			<h1>Pontos de Cultura</h1><br/>
+			
+			A potência da cultura Brasileira extrapola os limites da capacidade de fomento do Ministério da Cultura. É preciso lutar por mais investimentos na cultura, reconhecer e valorizar os processos culturais desenvolvidos de forma autônoma pela sociedade civil.<br/>
+			
+			O reconhecimento e a autodeclaração de entidades e coletivos culturais como Pontos e Pontões de Cultura são uma revindicação histórica dos fazedores de cultura do Brasil e agora é possível a partir da Rede Cultura Viva.<br/>
+						
+		</div>
+		<?php
+		$this->get_footer();
 	}
 	
 	function get_footer($param = '', $die = true)
