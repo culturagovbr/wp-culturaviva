@@ -134,7 +134,7 @@ class Mapas_Culturais_Events_Widget extends WP_Widget
 		{
 			$config = new Mapas_Culturais_Events_Widget_Config();
 			
-			$pgConnection = pg_connect("host={$config->_pghost} port={$config->_pgport} dbname={$config->_pgdb} user={$config->_pguser} password={$config->_pgpasswd}");
+			$pgConnection = @pg_connect("host={$config->_pghost} port={$config->_pgport} dbname={$config->_pgdb} user={$config->_pguser} password={$config->_pgpasswd}");
 			if($pgConnection !== false)
 			{
 				$sql = "
@@ -160,7 +160,7 @@ class Mapas_Culturais_Events_Widget extends WP_Widget
 		                eo.starts_on, eo.starts_at
 					LIMIT 3
 				";
-				$result = pg_query($pgConnection, $sql);
+				$result = @pg_query($pgConnection, $sql);
 				
 				if($result !== false)
 				{
