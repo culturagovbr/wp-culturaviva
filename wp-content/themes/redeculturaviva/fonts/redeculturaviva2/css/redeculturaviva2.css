@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'redeculturaviva2';
-  src: url('../font/redeculturaviva2.eot?24412202');
-  src: url('../font/redeculturaviva2.eot?24412202#iefix') format('embedded-opentype'),
-       url('../font/redeculturaviva2.woff?24412202') format('woff'),
-       url('../font/redeculturaviva2.ttf?24412202') format('truetype'),
-       url('../font/redeculturaviva2.svg?24412202#redeculturaviva2') format('svg');
+  src: url('../font/redeculturaviva2.eot?36890148');
+  src: url('../font/redeculturaviva2.eot?36890148#iefix') format('embedded-opentype'),
+       url('../font/redeculturaviva2.woff?36890148') format('woff'),
+       url('../font/redeculturaviva2.ttf?36890148') format('truetype'),
+       url('../font/redeculturaviva2.svg?36890148#redeculturaviva2') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'redeculturaviva2';
-    src: url('../font/redeculturaviva2.svg?24412202#redeculturaviva2') format('svg');
+    src: url('../font/redeculturaviva2.svg?36890148#redeculturaviva2') format('svg');
   }
 }
 */
@@ -56,3 +56,7 @@
  
 .icon2-right-open:before { content: '\e800'; } /* '' */
 .icon2-left-open:before { content: '\e801'; } /* '' */
+.icon2-diaspora-asterisk:before { content: '\e802'; } /* '' */
+.icon2-instagram:before { content: '\e803'; } /* '' */
+.icon2-youtube:before { content: '\e804'; } /* '' */
+.icon2-cdbr:before { content: '\e805'; } /* '' */

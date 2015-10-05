@@ -1,3 +1,7 @@
 
 .icon2-right-open:before { content: '\e800'; } /* '' */
 .icon2-left-open:before { content: '\e801'; } /* '' */
+.icon2-diaspora-asterisk:before { content: '\e802'; } /* '' */
+.icon2-instagram:before { content: '\e803'; } /* '' */
+.icon2-youtube:before { content: '\e804'; } /* '' */
+.icon2-cdbr:before { content: '\e805'; } /* '' */

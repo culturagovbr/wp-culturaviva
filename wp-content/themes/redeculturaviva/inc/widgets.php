@@ -13,6 +13,7 @@ class RedeCulturaVivaWidgets
 	function widgets_init()
 	{
 		register_widget( 'Mapas_Culturais_Events_Widget' );
+		register_widget( 'Social_Widget' );
 	}
 	
 	function autoembed($content)
@@ -29,3 +30,7 @@ $RedeCulturaVivaWidgets = new RedeCulturaVivaWidgets();
  * Load Mapas_Culturais_Events_Widget file.
  */
 require dirname(__FILE__) . '/widgets/events_widget.php';
+/**
+ * Load Social_Widget file.
+ */
+require dirname(__FILE__) . '/widgets/social_widget.php';
