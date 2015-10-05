@@ -1159,10 +1159,17 @@ a:active {
     position: relative;
     width: 49%;
     margin-top:1em;
+    max-width: 300px;
+}
+
+.archive .archive-col1 img.post-thumbnail {
+	max-width: 300px;
 }
 
 .archive article:nth-child(odd) .archive-col1 {
 	float: right;
+	margin-right: 0;
+	margin-left: 1em;
 }
 
 .archive .entry-content {
