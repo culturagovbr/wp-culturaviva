@@ -967,7 +967,9 @@ a:active {
 }
 
 .page .site-content.no-background h2,
-.single .site-content.no-background h2 {
+.single .site-content.no-background h2,
+.page .site-content.no-background a,
+.page .site-content.no-background a {
 	color: #fbed1d;
 }
 
