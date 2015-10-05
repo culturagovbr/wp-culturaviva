@@ -236,7 +236,31 @@ class RedeCulturaViva
 			@font-face {
 			    font-family: DroidSans-Bold;
 			    src: url(<?php echo get_template_directory_uri(). '/fonts/droid-sans/DroidSans-Bold.ttf'; ?>);
-			}<?php
+			}
+	<?php
+	}
+	
+	function get_icons()
+	{?>
+		<script type="text/javascript">
+		<!--
+			var headID = document.getElementsByTagName("head")[0];
+			var cssNode = document.createElement('link');
+			cssNode.type = 'text/css';
+			cssNode.rel = 'stylesheet';
+			cssNode.href = '<?php echo get_template_directory_uri().(is_admin() ? '/css/icons-prefix.css' : '/css/icons.css'); ?>';
+			cssNode.media = 'screen';
+			headID.appendChild(cssNode);
+			
+			var cssNode2 = document.createElement('link');
+			cssNode2.type = 'text/css';
+			cssNode2.rel = 'stylesheet';
+			cssNode2.href = '<?php echo get_template_directory_uri().(is_admin() ? '/fonts/redeculturaviva2/css/redeculturaviva2-prefix.css' : '/fonts/redeculturaviva2/css/redeculturaviva2.css'); ?>';
+			cssNode2.media = 'screen';
+			headID.appendChild(cssNode2);
+		
+		//-->
+		</script><?php
 	}
 	
 	function get_footer($param = '', $die = true)
@@ -247,6 +271,7 @@ class RedeCulturaViva
 			<?php include get_template_directory(). '/css/footer.css';?>
 			
 		</style>
+		<?php $this->get_icons(); ?>
 		<div class="site-footer-html">
 			<?php if(is_admin()) : ?>
 				<div id="barra-brasil" style="display:none;"> 
@@ -305,17 +330,10 @@ class RedeCulturaViva
 		</style>
 		<script type="text/javascript">
 		<!--
-			var headID = document.getElementsByTagName("head")[0];         
-			var cssNode = document.createElement('link');
-			cssNode.type = 'text/css';
-			cssNode.rel = 'stylesheet';
-			cssNode.href = '<?php echo get_template_directory_uri().(is_admin() ? '/css/icons-prefix.css' : '/css/icons.css'); ?>';
-			cssNode.media = 'screen';
-			headID.appendChild(cssNode);
-
 			<?php
 			if(is_admin()) :
 			?>
+				var headID = document.getElementsByTagName("head")[0];
 				var newScript = document.createElement('script');
 				newScript.type = 'text/javascript';
 				newScript.src = '<?php echo get_template_directory_uri() . '/js/navigation.js'; ?>';
@@ -326,6 +344,7 @@ class RedeCulturaViva
 			
 		//-->
 		</script>
+		<?php $this->get_icons(); ?>
 		<?php
 		//if(isset($_REQUEST['js']) && 'load' == $_REQUEST['js'])
 		{?>
