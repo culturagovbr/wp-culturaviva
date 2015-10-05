@@ -402,9 +402,19 @@ class RedeCulturaViva
 		return ! (get_post_meta($post_id, '_hide-sidebar', true) == 'Y');
 	}
 	
+	public static function has_background($post_id = null)
+	{
+		if(is_null($post_id)) $post_id = get_the_ID();
+	
+		if(!is_int($post_id) || $post_id < 1 ) return true;
+	
+		return ! (get_post_meta($post_id, '_transparent-background', true) == 'Y');
+	}
+	
 	function custom_metas()
 	{
 		add_meta_box("sidebar_meta", __("Post Layout", 'rede-cultura-viva'), array($this, 'sidebar_meta'), 'post', 'side', 'default');
+		add_meta_box("sidebar_meta", __("Page Layout", 'rede-cultura-viva'), array($this, 'sidebar_meta'), 'page', 'side', 'default');
 		add_meta_box("second_image_meta", __("Outras imagens", 'rede-cultura-viva'), array($this, 'second_image_meta'), 'post', 'side', 'default');
 	}
 	
@@ -413,9 +423,33 @@ class RedeCulturaViva
 		
 		wp_nonce_field( 'redeculturaviva_meta_inner_custom_box', 'redeculturaviva_meta_inner_custom_box_nonce' );
 		
-		$id = 'hide-sidebar';
+		if('post' == get_post_type() )
+		{
+			$id = 'hide-sidebar';
+			$value = "Y";
+			$label_item = __("Hide Sidebar", 'rede-cultura-viva');
+			$post_id = get_the_ID();
+			$i = 1;
+			$dado = get_post_meta($post_id, '_'.$id, true);
+			
+			?>
+			<div class="redeculturaviva-item redeculturaviva-item-checkbox <?php echo $id; ?>">
+				<div class="redeculturaviva-item-input-checkbox-block"><?php
+					if(array_key_exists($id, $_REQUEST))
+					{
+						if(is_string($_REQUEST[$id])) 
+						{
+							$dado = $_REQUEST[$id];
+						}
+					}
+					echo '<input id="'.("$id-option-$i").'" type="checkbox" name="'.$id.'" value="'.$value.'" '.($value == $dado ? 'checked="checked"': '').' ><label for="'.("$id-option-$i").'" class="redeculturaviva-item-input-checkbox" >'.$label_item.'</label>';?>
+				</div>
+			</div><?php
+		}
+		
+		$id = 'transparent-background';
 		$value = "Y";
-		$label_item = __("Hide Sidebar", 'rede-cultura-viva');
+		$label_item = __("Make background transparent", 'rede-cultura-viva');
 		$post_id = get_the_ID();
 		$i = 1;
 		$dado = get_post_meta($post_id, '_'.$id, true);
@@ -476,7 +510,21 @@ class RedeCulturaViva
 			return $post_id;
 		}
 		
-		$id = 'hide-sidebar';
+		if('post' == get_post_type() )
+		{
+			$id = 'hide-sidebar';
+			
+			if( array_key_exists($id, $_POST) )
+			{
+				update_post_meta($post_id, "_".$id, $_POST[$id]);
+			}
+			else // checkbox not checked
+			{
+				delete_post_meta($post_id, "_".$id);
+			}
+		}
+		
+		$id = 'transparent-background';
 		
 		if( array_key_exists($id, $_POST) )
 		{

@@ -29,4 +29,4 @@
 		$RedeCulturaViva->get_header('', false);
 	?>
 
-	<div id="content" class="site-content site-padding">
+	<div id="content" class="site-content site-padding <?php echo RedeCulturaViva::has_background() ? '' : 'no-background' ?>">

@@ -958,6 +958,17 @@ a:active {
     color: #d82e5f;
 }
 
+.page .site-content.no-background,
+.single .site-content.no-background {
+	background-color: transparent;
+	color: #fff;
+}
+
+.page .site-content.no-background h2,
+.single .site-content.no-background h2 {
+	color: #fbed1d;
+}
+
 .error404 a,
 .page a,
 .archive a,
