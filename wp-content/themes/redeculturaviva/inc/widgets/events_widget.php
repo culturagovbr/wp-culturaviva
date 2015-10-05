@@ -2,7 +2,13 @@
 
 class Mapas_Culturais_Events_Widget extends WP_Widget
 {
-
+	//TODO Better way to do this:
+	protected $_pghost = 'localhost';
+	protected $_pgport = '5432';
+	protected $_pgdb = 'mapas';
+	protected $_pguser = 'jacson';
+	protected $_pgpasswd = 'qwe1234';
+	
 	/**
 	 * Sets up the widgets name etc
 	 */
@@ -47,37 +53,35 @@ class Mapas_Culturais_Events_Widget extends WP_Widget
 		/** This filter is documented in wp-includes/default-widgets.php */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 		
-		//if ($r->have_posts())
+		$events = $this->get_events();
+		
+		echo $args['before_widget'];
+		if ( $title )
 		{
-		?>
-			<?php echo $args['before_widget']; ?>
-			<?php if ( $title ) {
-				echo $args['before_title']. '<span '.( array_key_exists('cssclasstitle', $instance) && !empty($instance['cssclasstitle']) ? 'class="'.$instance['cssclasstitle'].'"' : ''). '>' . $title . '</span>'. $args['after_title'];
-			} ?>
-			<ul>
-			<?php /*while ( $r->have_posts() ) : $r->the_post(); ?>
+			echo $args['before_title']. '<span '.( array_key_exists('cssclasstitle', $instance) && !empty($instance['cssclasstitle']) ? 'class="'.$instance['cssclasstitle'].'"' : ''). '>' . $title . '</span>'. $args['after_title'];
+		}?>
+		<ul>
+		<?php
+			if (count($events) > 0) :
+				foreach ($events as $event) :  ?>
+					<li>
+						<div class="col1">
+							<span class="post-date"><?php echo $event['date']; ?></span>
+						</div>
+						<div class="col2">
+							<a href="<?php echo $event['url']; ?>"><?php echo $event['name']; ?></a>
+						</div>
+					</li>
+				<?php endforeach;
+			else : ?>
 				<li>
-					<a href="<?php the_permalink(); ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a>
-				<?php if ( $show_date ) : ?>
-					<span class="post-date"><?php echo get_the_date(); ?></span>
-				<?php endif; ?>
-				</li>
-			<?php endwhile; */ for ( $i = 1; $i < 4; $i++) :  ?>
-				<li>
-					<div class="col1">
-						<span class="post-date"><?php echo (date('d') + $i)."/".date('m'); ?></span>
-					</div>
-					<div class="col2">
-						<a href="#"><?php echo "Evento Bem comprido o nome, não é mesmo? ".$i; ?></a>
-					</div>
-				</li>
-				<?php endfor; ?>
-			</ul>
-			<?php echo $args['after_widget']; ?>
-			<?php
-			// Reset the global $the_post as this query will have stomped on it
-			wp_reset_postdata();
-		}
+					<?php _e('Nenhum evento cadastrado ainda', 'rede-cultura-viva'); ?>
+					<a href="<?php echo '/eventos/create/'; ?>"><?php _e('Você pode cadastrar um evento clicando aqui!', 'rede-cultura-viva'); ?></a>
+				</li><?php
+			endif; ?>
+		</ul>
+		<?php echo $args['after_widget']; ?>
+		<?php
 		
 		if ( ! $this->is_preview() )
 		{
@@ -122,5 +126,97 @@ class Mapas_Culturais_Events_Widget extends WP_Widget
 		$instance['cssclasstitle'] = strip_tags($new_instance['cssclasstitle']);
 		
 		return $instance;
+	}
+	
+	public function get_events()
+	{
+		$events = array();
+		if(function_exists('pg_connect'))
+		{
+			$pgConnection = pg_connect("host={$this->_pghost} port={$this->_pgport} dbname={$this->_pgdb} user={$this->_pguser} password={$this->_pgpasswd}");
+			if($pgConnection !== false)
+			{
+				$sql = "
+					SELECT
+		                *
+		            FROM
+		                event e
+		            JOIN 
+		                event_occurrence eo 
+		                    ON eo.event_id = e.id 
+		                        AND eo.status > 0
+		
+		            WHERE
+		                e.status > 0 AND
+		                e.id IN (
+		                    SELECT 
+		                        event_id 
+		                    FROM 
+		                        recurring_event_occurrence_for('".date('Y-m-d')." 00:00:00', '".date('Y-m-d', strtotime('+1 year'))." 23:59:59', 'Etc/UTC', NULL) 
+		                      
+		                )
+		            ORDER BY
+		                eo.starts_on, eo.starts_at
+					LIMIT 3
+				";
+				$result = pg_query($pgConnection, $sql);
+				
+				if($result !== false)
+				{
+					// rule decode
+					$week = array(
+						'Sunday',
+						'Monday',
+						'Tuesday',
+						'Wednesday',
+						'Thursday',
+						'Friday',
+						'Saturday'
+					);
+					while ($row = pg_fetch_assoc($result))
+					{
+						$rule = json_decode($row['rule']);
+						$idate = 0;
+						switch ($rule->frequency)
+						{
+							case 'weekly':
+								$days = get_object_vars($rule->day);
+								$dayofweek = date('w');
+								$min = strtotime('+2 years');
+								
+								if(array_key_exists(date('w', strtotime($rule->startsOn." 00:00:00")), $days)) // fix startsOn firt day of weekly event
+								{
+									$min = strtotime($rule->startsOn." ".$rule->startsAt);
+								}
+								
+								foreach ($days as $key => $value)
+								{
+									$min = min(strtotime("next ".$week[$key], strtotime($rule->startsOn." 00:00:00")), $min);
+								}
+								$idate = $min;
+							break;
+							case 'daily':
+								$today = strtotime(date('Y-m-d')." ".$rule->startsAt);
+								if(time() > ($today + ($rule->duration * 60)) ) // next tomorow
+								{
+									$idate = strtotime('+1 day', $today);
+								}
+								else 
+								{
+									$idate = $today;
+								}
+							break;
+							case 'once':
+								$idate = strtotime($rule->startsOn);
+							break;
+						}
+						
+						$events[] = array('idate' => $idate, 'name' => $row['name'], 'date' => date('d/m', $idate), 'url' => "/evento/{$row['event_id']}/" );
+						
+					}
+				}
+			}
+		}
+		return $events;
 	}
 }
