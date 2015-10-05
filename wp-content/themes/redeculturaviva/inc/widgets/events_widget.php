@@ -76,7 +76,12 @@ class Mapas_Culturais_Events_Widget extends WP_Widget
 			else : ?>
 				<li>
 					<?php _e('Nenhum evento cadastrado ainda', 'rede-cultura-viva'); ?>
-					<a href="<?php echo '/eventos/create/'; ?>"><?php _e('Você pode cadastrar um evento clicando aqui!', 'rede-cultura-viva'); ?></a>
+				</li>
+				<li>
+					<?php _e('Você pode cadastrar um evento clicando aqui!', 'rede-cultura-viva'); ?>
+				</li>
+				<li>
+					<a href="<?php echo '/eventos/create/'; ?>"><?php _e('Clicando aqui!', 'rede-cultura-viva'); ?></a>
 				</li><?php
 			endif; ?>
 		</ul>
