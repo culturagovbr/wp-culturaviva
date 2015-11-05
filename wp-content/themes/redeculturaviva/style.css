@@ -944,6 +944,30 @@ a:active {
     width: 85%;
 }
 
+.all-posts-link {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.all-posts-link > a {
+    background-color: #f7c908;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto 1em;
+    padding: 0.5em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+    color: #d82e5f;
+}
+
+.all-posts-link > a:hover {
+    background-color: #fbed1d;
+}
+
 .error404 .site-content,
 .page .site-content,
 .archive .site-content,
