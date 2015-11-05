@@ -18,7 +18,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main"><?php
 			if( get_theme_mod('redeculturaviva_display_slider') == 1 )
 			{  
-				$feature = new WP_Query( array( 'posts_per_page' => 5, 'ignore_sticky_posts' => 1, 'meta_key' => '_home', 'meta_value' => 1 ) );
+				$feature = new WP_Query( array( 'posts_per_page' => 5, 'ignore_sticky_posts' => 1, 'meta_key' => '_home', 'meta_value' => 1, 'post_type' => array('post', 'oportunidade') ) );
 				if ( $feature->have_posts() ) : ?>
 	
 					<div class="cycle-slideshow highlights" >
@@ -27,6 +27,7 @@ get_header(); ?>
 				        	<div class="cycle-prev"><div class="icon2-left-open"></div></div>
 	   					 	<div class="cycle-next"><div class="icon2-right-open"></div></div>
 					        <?php while ( $feature->have_posts() ) :
+					        	$url = '';
 					        	$feature->the_post();
 
 					        	$thumbnail2 = get_post_meta(get_the_ID(), '_thumbnail2', true);
