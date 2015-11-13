@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rede Cultura Viva Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 23:02-0300\n"
+"POT-Creation-Date: 2015-11-05 18:20-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jacson Passold <jacson@ethymos.com.br>\n"
 "Language-Team: Jacson Passold <jacson@ethymsos.com.br>\n"
@@ -26,66 +26,75 @@ msgid "Skip to content"
 msgstr "Pular para"
 
 # @ _s
-#: ../functions.php:74
+#: ../functions.php:78
 msgid "Primary Menu"
 msgstr "Menu Primário"
 
-#: ../functions.php:128
+#: ../functions.php:132
 msgid "Home Sidebar"
 msgstr "Barra da capa"
 
-#: ../functions.php:137
+#: ../functions.php:141
 msgid "Footer Sidebar"
 msgstr "Barra do rodapé"
 
-#: ../functions.php:146
+#: ../functions.php:150
 msgid "Post Sidebar"
 msgstr "Barra Lateral do Post"
 
-#: ../functions.php:268
+#: ../functions.php:329
 msgid "https://wordpress.org/"
 msgstr "https://wordpress.org/"
 
 # @ _s
-#: ../functions.php:268
+#: ../functions.php:329
 #, php-format
 msgid "Proudly powered by %s"
 msgstr "Orgulhosamente criado por %s"
 
 # @ _s
-#: ../functions.php:270
+#: ../functions.php:331
 #, php-format
 msgid "Theme: %1$s by %2$s."
 msgstr "Tema %1$s por %2$s."
 
-#: ../functions.php:334
+#: ../functions.php:399
 msgid "Menu"
 msgstr "Menu"
 
-#: ../functions.php:382
+#: ../functions.php:456
 msgid "Post Layout"
 msgstr "Layout do Poste"
 
-#: ../functions.php:383
+#: ../functions.php:457
+msgid "Page Layout"
+msgstr "Layout da Página"
+
+#: ../functions.php:458
 msgid "Outras imagens"
 msgstr "Outras imagens"
 
-#: ../functions.php:393
+#: ../functions.php:470
 msgid "Hide Sidebar"
 msgstr "Esconder Barra Lateral"
 
-#: ../functions.php:418 ../inc/oportunidades/oportunidades.php:227
+#: ../functions.php:492
+msgid "Make background transparent"
+msgstr "Tornar o fundo transparente"
+
+#: ../functions.php:517 ../functions.php:520
+#: ../inc/oportunidades/oportunidades.php:227
 msgid "Segunda Imagem"
 msgstr "Imagem do destaque rotativo da capa"
 
-#: ../functions.php:420 ../inc/oportunidades/oportunidades.php:229
+#: ../functions.php:519 ../inc/oportunidades/oportunidades.php:229
 #: ../inc/oportunidades/oportunidades.php:237
 #: ../inc/oportunidades/oportunidades.php:245
 #: ../inc/oportunidades/oportunidades.php:507
 msgid "Choose or Upload an Image"
 msgstr "Selecione ou carregue uma imagem"
 
-#: ../home.php:60
+#: ../home.php:68
 #, php-format
 msgid ""
 "To display your featured posts here go to the <a href=\"%s\">Post Edit Page</"
@@ -94,6 +103,10 @@ msgid ""
 msgstr ""
 "Para mostrar seus postes destacados aqui, entre em <a href=\"%s\">Página de "
 "edição de postes</a> e marque a caixa \"Destaque\"."
+
+#: ../home.php:92
+msgid "View all posts"
+msgstr "Ver todas as notícias"
 
 # @ _s
 #: ../404.php:17
@@ -191,13 +204,13 @@ msgid "Edit"
 msgstr "Editar"
 
 # @ _s
-#: ../template-parts/content.php:27
+#: ../template-parts/content.php:52
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Continue lendo %s <span class=\"meta-nav\">&rarr;</span>"
 
 # @ _s
-#: ../template-parts/content.php:34 ../template-parts/content-page.php:44
+#: ../template-parts/content.php:59 ../template-parts/content-page.php:44
 #: ../template-parts/content-single.php:45
 msgid "Pages:"
 msgstr "Páginas:"
@@ -313,13 +326,89 @@ msgstr "Widget Eventos do Mapas Culturais"
 msgid "Mapas Culturais Events List"
 msgstr "Lista de Eventos do Mapas Culturais"
 
-#: ../inc/widgets/events_widget.php:104
+#: ../inc/widgets/events_widget.php:72
+msgid "Nenhum evento cadastrado ainda"
+msgstr "Nenhum evento cadastrado ainda"
+
+#: ../inc/widgets/events_widget.php:75
+msgid "Você pode cadastrar um evento clicando aqui!"
+msgstr "Você pode cadastrar um evento clicando aqui!"
+
+#: ../inc/widgets/events_widget.php:78
+msgid "Clicando aqui!"
+msgstr "Clicando aqui!"
+
+#: ../inc/widgets/events_widget.php:107 ../inc/widgets/social_widget.php:112
 msgid "Title:"
 msgstr "Título:"
 
-#: ../inc/widgets/events_widget.php:106
+#: ../inc/widgets/events_widget.php:109
 msgid "Title CSS Class:"
 msgstr "Classe Css do Título:"
+
+#: ../inc/widgets/social_widget.php:12
+msgid "Redes Sociais"
+msgstr "Redes Sociais"
+
+#: ../inc/widgets/social_widget.php:13
+msgid "Widget para Redes Sociais"
+msgstr "Widget para Redes Sociais"
+
+#: ../inc/widgets/social_widget.php:68
+msgid "Diáspora"
+msgstr "Diáspora"
+
+#: ../inc/widgets/social_widget.php:69
+msgid "Cultura Digital BR"
+msgstr "Cultura Digital BR"
+
+#: ../inc/widgets/social_widget.php:70
+msgid "Facebook"
+msgstr "Facebook"
+
+#: ../inc/widgets/social_widget.php:71
+msgid "Instagram"
+msgstr "Instagram"
+
+#: ../inc/widgets/social_widget.php:72
+msgid "Youtube"
+msgstr ""
+
+#: ../inc/widgets/social_widget.php:73
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../inc/widgets/social_widget.php:74
+msgid "Google+"
+msgstr "Google+"
+
+#: ../inc/widgets/social_widget.php:114
+msgid "Diáspora:"
+msgstr ""
+
+#: ../inc/widgets/social_widget.php:116
+msgid "Cultura Digital BR:"
+msgstr ""
+
+#: ../inc/widgets/social_widget.php:118
+msgid "Facebook:"
+msgstr " Facebook:"
+
+#: ../inc/widgets/social_widget.php:120
+msgid "Instagram:"
+msgstr ""
+
+#: ../inc/widgets/social_widget.php:122
+msgid "Youtube:"
+msgstr ""
+
+#: ../inc/widgets/social_widget.php:124
+msgid "Twitter:"
+msgstr ""
+
+#: ../inc/widgets/social_widget.php:126
+msgid "Google+:"
+msgstr ""
 
 #: ../inc/oportunidades/oportunidades.php:39
 #: ../inc/oportunidades/oportunidades.php:40
