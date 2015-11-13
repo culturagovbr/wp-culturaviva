@@ -79,18 +79,21 @@ get_header(); ?>
 			</div><!-- #home-sidebar -->
 
 			<?php
-			if(have_posts())
+            $img_feature = new WP_Query( array( 'posts_per_page' => 5, 'ignore_sticky_posts' => 1, 'post_type' => array('post', 'oportunidade' ), 'meta_query' => array(array( 'key' => '_home', 'compare' => 'NOT EXISTS') ) ) );
+    
+			if ( $img_feature->have_posts() )
 			{?>
 				<div class="home-posts-list"><?php
-				while ( have_posts() )
+				while ( $img_feature->have_posts() )
 				{
-					the_post();
+					$img_feature->the_post();
 					get_template_part( 'template-parts/content', 'home' );
 				}?>
 				</div><?php
 			}?>
-
+			<div class="all-posts-link"><a href="<?php echo home_url('/noticias'); ?>"><?php _e('View all posts', 'redeculturaviva') ?></a></div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
+                
 
 <?php get_footer(); ?>
