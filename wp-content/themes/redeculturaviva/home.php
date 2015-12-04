@@ -91,7 +91,7 @@ get_header(); ?>
 				}?>
 				</div><?php
 			}?>
-			<div class="all-posts-link"><a href="<?php echo home_url('/noticias'); ?>"><?php _e('View all posts', 'redeculturaviva') ?></a></div>
+			<div class="all-posts-link"><a href="<?php echo home_url('/noticias'); ?>"><?php _e('Ver todas as notícias', 'redeculturaviva') ?></a></div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
                 
