@@ -406,11 +406,11 @@ class RedeCulturaViva
 	
 	function custom_rewrite_rules()
 	{
-	
 		add_rewrite_rule('oportunidades(.*)', 'index.php?post_type=oportunidade$matches[1]', 'top');
+		add_rewrite_rule('noticias/page/?([0-9]{1,})/?$', 'index.php?category_name=noticias&paged=$matches[1]$matches[2]', 'top');
 		add_rewrite_rule('noticias(.*)', 'index.php?category_name=noticias$matches[1]', 'top');
+		add_rewrite_rule('videos/page/?([0-9]{1,})/?$', 'index.php?category_name=videos&paged=$matches[1]$matches[2]', 'top');
 		add_rewrite_rule('videos(.*)', 'index.php?category_name=videos$matches[1]', 'top');
-		
 	}
 	
 	function check_rewrite()
@@ -421,7 +421,7 @@ class RedeCulturaViva
 		{
 			foreach ($rules as $rule)
 			{
-				if(strpos($rule, 'videos') !== false)
+				if(strpos($rule, 'videos/page') !== false)
 				{
 					$found = true;
 					break;
@@ -577,7 +577,7 @@ class RedeCulturaViva
 		
 		if(array_key_exists('thumbnail2', $_POST))
 		{
-			update_post_meta($post_id, '_thumbnail2', sanitize_url($_POST['thumbnail2'])); //TODO more sec
+			update_post_meta($post_id, '_thumbnail2', esc_url_raw($_POST['thumbnail2'])); //TODO more sec
 		}
 	}
 	
