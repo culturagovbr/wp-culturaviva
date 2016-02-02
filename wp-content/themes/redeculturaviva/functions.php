@@ -182,7 +182,10 @@ class RedeCulturaViva
 		wp_enqueue_script('jquery-cycle2-center', get_template_directory_uri() . '/js/jquery.cycle2.center.min.js', array('jquery-cycle2'));
 		wp_enqueue_script('jquery-slider-scroller', get_template_directory_uri() . '/js/jquery.slider.scroller.js', array('jquery-cycle2'));
 		
-		
+		if(is_search())
+		{//TODO better way to do that: hide default search form when have on at sidebar
+			wp_enqueue_script('rede-cultura-viva-search', get_template_directory_uri() . '/js/search.js', array('jquery'));
+		}
 		
 	}
 	

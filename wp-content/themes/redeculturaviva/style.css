@@ -789,6 +789,21 @@ a:active {
     width: 25%;
 }
 
+.search #secondary aside:nth-child(1) {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.search #secondary aside:nth-child(n+2) {
+	display: block;
+    float: left;
+    position: relative;
+    width: 49%;
+    height: 260px;
+}
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -968,6 +983,7 @@ a:active {
     background-color: #fbed1d;
 }
 
+.search .site-content,
 .error404 .site-content,
 .page .site-content,
 .archive .site-content,
@@ -977,6 +993,7 @@ a:active {
     padding: 2em;
 }
 
+.search h1,
 .error404 h1,
 .page h1,
 .archive h1,
@@ -997,6 +1014,7 @@ a:active {
 	color: #fbed1d;
 }
 
+.search a,
 .error404 a,
 .page a,
 .archive a,
@@ -1005,6 +1023,7 @@ a:active {
     text-decoration: none;
 }
 
+.search a:hover,
 .error404 a:hover,
 .page a:hover,
 .archive a:hover,
