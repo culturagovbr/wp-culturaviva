@@ -1,6 +1,6 @@
 <?php
 
-add_action( 'init', 'wpcf7_control_init', 11 );
+add_action( 'wp_loaded', 'wpcf7_control_init' );
 
 function wpcf7_control_init() {
 	if ( ! isset( $_SERVER['REQUEST_METHOD'] ) ) {
@@ -165,14 +165,18 @@ function wpcf7_enqueue_scripts() {
 		array( 'jquery', 'jquery-form' ), WPCF7_VERSION, $in_footer );
 
 	$_wpcf7 = array(
-		'loaderUrl' => wpcf7_ajax_loader(),
-		'sending' => __( 'Sending ...', 'contact-form-7' ) );
+		'recaptcha' => array(
+			'messages' => array(
+				'empty' => __( 'Please verify that you are not a robot.',
+					'contact-form-7' ) ) ) );
 
-	if ( defined( 'WP_CACHE' ) && WP_CACHE )
+	if ( defined( 'WP_CACHE' ) && WP_CACHE ) {
 		$_wpcf7['cached'] = 1;
+	}
 
-	if ( wpcf7_support_html5_fallback() )
+	if ( wpcf7_support_html5_fallback() ) {
 		$_wpcf7['jqueryUi'] = 1;
+	}
 
 	wp_localize_script( 'contact-form-7', '_wpcf7', $_wpcf7 );
 
