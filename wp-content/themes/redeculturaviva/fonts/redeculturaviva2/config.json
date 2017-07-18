@@ -57,6 +57,12 @@
       "css": "youtube",
       "code": 59396,
       "src": "fontawesome"
+    },
+    {
+      "uid": "d7b214265bfe7138768bb8b9f62b759a",
+      "css": "certificate-outline",
+      "code": 59398,
+      "src": "typicons"
     }
   ]
 }

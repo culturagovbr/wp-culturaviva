@@ -1,10 +1,11 @@
 @font-face {
   font-family: 'redeculturaviva2';
-  src: url('../font/redeculturaviva2.eot?36890148');
-  src: url('../font/redeculturaviva2.eot?36890148#iefix') format('embedded-opentype'),
-       url('../font/redeculturaviva2.woff?36890148') format('woff'),
-       url('../font/redeculturaviva2.ttf?36890148') format('truetype'),
-       url('../font/redeculturaviva2.svg?36890148#redeculturaviva2') format('svg');
+  src: url('../font/redeculturaviva2.eot?68419426');
+  src: url('../font/redeculturaviva2.eot?68419426#iefix') format('embedded-opentype'),
+       url('../font/redeculturaviva2.woff2?68419426') format('woff2'),
+       url('../font/redeculturaviva2.woff?68419426') format('woff'),
+       url('../font/redeculturaviva2.ttf?68419426') format('truetype'),
+       url('../font/redeculturaviva2.svg?68419426#redeculturaviva2') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'redeculturaviva2';
-    src: url('../font/redeculturaviva2.svg?36890148#redeculturaviva2') format('svg');
+    src: url('../font/redeculturaviva2.svg?68419426#redeculturaviva2') format('svg');
   }
 }
 */
@@ -60,3 +61,4 @@
 .icon2-instagram:before { content: '\e803'; } /* '' */
 .icon2-youtube:before { content: '\e804'; } /* '' */
 .icon2-cdbr:before { content: '\e805'; } /* '' */
+.icon2-certificate-outline:before { content: '\e806'; } /* '' */
