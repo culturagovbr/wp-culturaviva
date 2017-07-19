@@ -61,3 +61,12 @@
 .site-footer-html .icon2-instagram:before { content: '\e803'; } /* '' */
 .site-footer-html .icon2-youtube:before { content: '\e804'; } /* '' */
 .site-footer-html .icon2-cdbr:before { content: '\e805'; } /* '' */
+.site-footer-html .icon2-certificate-outline:before { content: '\e806'; } /* '' */
+
+#primary-menu .icon2-right-open:before { content: '\e800'; } /* '' */
+#primary-menu .icon2-left-open:before { content: '\e801'; } /* '' */
+#primary-menu .icon2-diaspora-asterisk:before { content: '\e802'; } /* '' */
+#primary-menu .icon2-instagram:before { content: '\e803'; } /* '' */
+#primary-menu .icon2-youtube:before { content: '\e804'; } /* '' */
+#primary-menu .icon2-cdbr:before { content: '\e805'; } /* '' */
+#primary-menu .icon2-certificate-outline:before { content: '\e806'; } /* '' */
