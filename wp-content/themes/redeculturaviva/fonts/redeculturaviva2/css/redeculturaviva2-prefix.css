@@ -19,6 +19,8 @@
 }
 */
  
+ #primary-menu [class^="icon2-"]:before,
+ #primary-menu [class*=" icon2-"]:before,
  .site-footer-html [class^="icon2-"]:before,
  .site-footer-html [class*=" icon2-"]:before {
   font-family: "redeculturaviva2";
