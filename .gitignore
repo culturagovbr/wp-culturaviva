@@ -14,6 +14,7 @@ nbproject/
 .buildpath
 .settings
 wp-content/blogs.dir
+wp-content-17-12-15/
 
 # WordPress dev plugins
 wp-content/plugins/regenerate-thumbnails
